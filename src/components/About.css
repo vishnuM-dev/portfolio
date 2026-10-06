@@ -62,8 +62,8 @@
 .stat-card:hover {
   border-color: var(--accent-primary);
   transform: translateY(-2px);
-  background: #fff5f7;
-  box-shadow: 0 4px 16px rgba(77, 21, 38, 0.08);
+  background: var(--palette-lavender-white);
+  box-shadow: 0 6px 20px var(--accent-glow);
 }
 
 .stat-number {
@@ -107,15 +107,15 @@
 .feature-card:hover {
   transform: translateY(-5px);
   border-color: var(--accent-primary);
-  box-shadow: 0 12px 32px rgba(77, 21, 38, 0.1);
+  box-shadow: 0 14px 36px var(--accent-glow), 0 2px 10px rgba(200, 168, 233, 0.15);
 }
 
 .feature-icon {
   width: 50px;
   height: 50px;
   border-radius: var(--radius-md);
-  background: #fff5f7;
-  border: 1px solid rgba(77, 21, 38, 0.12);
+  background: linear-gradient(135deg, var(--palette-lavender-white) 0%, var(--palette-blush-cream) 100%);
+  border: 1px solid var(--border-strong);
   display: flex;
   align-items: center;
   justify-content: center;

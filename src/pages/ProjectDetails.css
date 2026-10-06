@@ -128,9 +128,9 @@
   font-weight: 700;
   padding: 0.25rem 0.75rem;
   border-radius: var(--radius-sm);
-  background: rgba(77, 21, 38, 0.08);
+  background: var(--palette-lavender-white);
   color: var(--accent-primary);
-  border: 1px solid rgba(77, 21, 38, 0.15);
+  border: 1px solid var(--border-strong);
 }
 
 .project-hero-tag {
@@ -275,7 +275,7 @@
 .feature-grid-item:hover {
   border-color: var(--accent-primary);
   transform: translateY(-2px);
-  background: #fff5f7;
+  background: var(--palette-lavender-white);
 }
 
 .feature-icon-wrapper {
@@ -393,8 +393,8 @@
 }
 
 .cta-sidebar-card {
-  background: linear-gradient(135deg, rgba(77, 21, 38, 0.05) 0%, rgba(77, 21, 38, 0.02) 100%);
-  border-color: rgba(77, 21, 38, 0.15);
+  background: linear-gradient(135deg, rgba(244, 231, 251, 0.7) 0%, rgba(242, 221, 220, 0.4) 100%);
+  border-color: var(--border-strong);
 }
 
 .cta-sidebar-card h4 {
@@ -484,7 +484,7 @@
 .pagination-card:hover .pagination-arrow {
   color: var(--accent-primary);
   border-color: var(--accent-primary);
-  background: #fff5f7;
+  background: var(--palette-lavender-white);
 }
 
 .pagination-info {
@@ -533,7 +533,7 @@
 }
 
 .center-back-btn:hover {
-  background: #fff5f7;
+  background: var(--palette-lavender-white);
   border-color: var(--accent-primary);
   color: var(--accent-primary);
   transform: translateY(-2px);

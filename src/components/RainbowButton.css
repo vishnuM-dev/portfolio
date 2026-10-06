@@ -41,16 +41,18 @@
 .rainbow-button::before {
   content: '';
   position: absolute;
-  inset: -1px;
+  inset: -1.5px;
   border-radius: var(--radius-full);
   background: linear-gradient(
     90deg,
-    #ff4500,
-    #ffaa00,
-    #00e5ff,
-    #7000ff,
-    #ff007f,
-    #ff4500
+    #C3C7F4,
+    #C8A8E9,
+    #E3AADD,
+    #F6BCBA,
+    #F2DDDC,
+    #F4E7FB,
+    #C8A8E9,
+    #C3C7F4
   );
   background-size: 200% 200%;
   animation: rainbowAnimation 4s linear infinite;

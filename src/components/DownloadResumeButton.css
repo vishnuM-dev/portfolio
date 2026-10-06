@@ -7,19 +7,16 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  /* 8px border on each side eats into height.
-     Rainbow buttons: 0.85rem padding + ~1px border = ~14.6px vertical per side.
-     Here: 0.41rem padding + 8px border ≈ 14.6px per side → same total height. */
   padding: 0.41rem 1.1rem;
-  background-color: var(--accent-primary);   /* #4D1526 — portfolio maroon */
-  border: 8px solid rgba(77, 21, 38, 0.18);  /* soft maroon tint ring */
+  background: var(--accent-gradient-btn);
+  border: 8px solid rgba(200, 168, 233, 0.35);  /* soft lavender tint ring */
   color: #ffffff;
   gap: 8px;
   border-radius: var(--radius-full);
   cursor: pointer;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   font-family: var(--font-heading);
-  font-size: 0.925rem;               /* matches rainbow button font-size */
+  font-size: 0.925rem;
   font-weight: 700;
   letter-spacing: 0.5px;
   text-decoration: none;
@@ -27,16 +24,19 @@
   user-select: none;
   outline: none;
   position: relative;
+  box-shadow: 0 4px 16px var(--accent-glow);
 }
 
 .dl-button:hover {
-  background-color: var(--accent-hover);     /* #3a0f1c — darker maroon */
-  border-color: rgba(77, 21, 38, 0.28);
+  background: linear-gradient(135deg, var(--accent-hover) 0%, var(--accent-primary) 100%);
+  border-color: rgba(227, 170, 221, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(134, 70, 156, 0.3);
 }
 
 .dl-button:active {
   border-width: 5px;
-  border-color: rgba(77, 21, 38, 0.18);
+  border-color: rgba(200, 168, 233, 0.4);
 }
 
 /* ── Icon wrapper ── */

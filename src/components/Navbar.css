@@ -16,11 +16,11 @@
 }
 
 .navbar-scrolled {
-  background: rgba(250, 247, 242, 0.92);
+  background: rgba(250, 246, 253, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-subtle);
-  box-shadow: 0 4px 20px rgba(31, 27, 24, 0.08);
+  box-shadow: 0 4px 20px rgba(140, 82, 176, 0.08);
   height: 70px;
 }
 
@@ -94,7 +94,7 @@
   height: 4px;
   border-radius: 50%;
   background-color: var(--accent-primary);
-  box-shadow: 0 0 6px rgba(77, 21, 38, 0.5);
+  box-shadow: 0 0 6px var(--accent-glow);
 }
 
 /* ── Navbar Actions ── */

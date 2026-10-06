@@ -64,8 +64,8 @@ export default function ParticleResumeButton({
         this.pos = new Vector(x, y, z);
         this.vel = new Vector(0, 0, -Z_SPD);
         this.vel.scale(0.01);
-        this.fill = "rgba(255, 255, 255, 0.65)";
-        this.stroke = "rgba(16, 185, 129, 0.4)";
+        this.fill = "rgba(255, 255, 255, 0.75)";
+        this.stroke = "rgba(200, 168, 233, 0.5)";
       }
 
       update() {
@@ -149,8 +149,8 @@ export default function ParticleResumeButton({
       <BorderBeam
         duration={4}
         borderWidth={1.8}
-        colorFrom="#10b981"
-        colorTo="#6366f1"
+        colorFrom="#C8A8E9"
+        colorTo="#F6BCBA"
       />
     </a>
   );

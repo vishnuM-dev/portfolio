@@ -140,10 +140,10 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent-primary);
-  background: rgba(77, 21, 38, 0.08);
+  background: var(--palette-lavender-white);
   padding: 0.25rem 0.65rem;
   border-radius: var(--radius-sm);
-  border: 1px solid rgba(77, 21, 38, 0.15);
+  border: 1px solid var(--border-strong);
 }
 
 .modal-title {
@@ -208,7 +208,7 @@
 
 /* ── Highlight Box ── */
 .modal-highlight-box {
-  background: rgba(77, 21, 38, 0.04);
+  background: linear-gradient(135deg, rgba(244, 231, 251, 0.6) 0%, rgba(242, 221, 220, 0.4) 100%);
   border-left: 3px solid var(--accent-primary);
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
   padding: 1.15rem 1.35rem;

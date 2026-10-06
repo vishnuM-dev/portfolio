@@ -31,14 +31,14 @@ function GlowSkillChip({ name, icon: IconComp }) {
     const y = e.clientY - rect.top;
     const t = Math.max(0, Math.min(1, x / (rect.width || 1)));
 
-    // Interpolate Emerald #10b981 (16, 185, 129) to Indigo #6366f1 (99, 102, 241)
-    const r = Math.round(16 + (99 - 16) * t);
-    const g = Math.round(185 + (102 - 185) * t);
-    const b = Math.round(129 + (241 - 129) * t);
+    // Interpolate Lavender #C8A8E9 (200, 168, 233) to Rose #F6BCBA (246, 188, 186)
+    const r = Math.round(200 + (246 - 200) * t);
+    const g = Math.round(168 + (188 - 168) * t);
+    const b = Math.round(233 + (186 - 233) * t);
 
     chip.style.setProperty('--pointer-x', `${x}px`);
     chip.style.setProperty('--pointer-y', `${y}px`);
-    chip.style.setProperty('--button-glow', `rgba(${r}, ${g}, ${b}, 0.35)`);
+    chip.style.setProperty('--button-glow', `rgba(${r}, ${g}, ${b}, 0.4)`);
   };
 
   return (
@@ -66,14 +66,14 @@ function GlowCategoryCard({ categoryGroup }) {
     const y = e.clientY - rect.top;
     const t = Math.max(0, Math.min(1, x / (rect.width || 1)));
 
-    // Interpolate Emerald #10b981 (16, 185, 129) to Indigo #6366f1 (99, 102, 241)
-    const r = Math.round(16 + (99 - 16) * t);
-    const g = Math.round(185 + (102 - 185) * t);
-    const b = Math.round(129 + (241 - 129) * t);
+    // Interpolate Lavender #C8A8E9 (200, 168, 233) to Rose #F6BCBA (246, 188, 186)
+    const r = Math.round(200 + (246 - 200) * t);
+    const g = Math.round(168 + (188 - 168) * t);
+    const b = Math.round(233 + (186 - 233) * t);
 
     card.style.setProperty('--pointer-x', `${x}px`);
     card.style.setProperty('--pointer-y', `${y}px`);
-    card.style.setProperty('--button-glow', `rgba(${r}, ${g}, ${b}, 0.18)`);
+    card.style.setProperty('--button-glow', `rgba(${r}, ${g}, ${b}, 0.22)`);
   };
 
   return (

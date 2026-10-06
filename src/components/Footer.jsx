@@ -80,9 +80,6 @@ export default function Footer() {
           <p className="copyright-text">
             &copy; 2026 M. Vishnu Vardhan Reddy. All rights reserved.
           </p>
-          <p className="footer-subtext">
-            Built with React &amp; modern web technologies.
-          </p>
 
           {/* Back to top */}
           <button

@@ -127,15 +127,15 @@ export default function Hero() {
               <BorderBeam
                 duration={6}
                 borderWidth={2.5}
-                colorFrom="#10b981"
-                colorTo="#6366f1"
+                colorFrom="#C8A8E9"
+                colorTo="#E3AADD"
                 delay={0}
               />
               <BorderBeam
                 duration={6}
                 borderWidth={2.5}
-                colorFrom="#ec4899"
-                colorTo="#3b82f6"
+                colorFrom="#F6BCBA"
+                colorTo="#C3C7F4"
                 delay={3}
               />
             </div>

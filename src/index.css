@@ -4,33 +4,46 @@
    ========================================================================== */
 
 :root {
+  /* ── Palette Tokens (From Color Pattern) ── */
+  --palette-lavender-white: #F4E7FB;
+  --palette-blush-cream:    #F2DDDC;
+  --palette-rose-coral:     #F6BCBA;
+  --palette-orchid-pink:    #E3AADD;
+  --palette-lavender:       #C8A8E9;
+  --palette-periwinkle:     #C3C7F4;
+
   /* ── Backgrounds ── */
-  --bg-primary:       #FAF7F2;
-  --bg-surface:       #F0EBE3;
-  --bg-surface-hover: #E8E0D5;
+  --bg-primary:       #FAF6FD;
+  --bg-surface:       #F5EDF9;
+  --bg-surface-hover: #ECE0F4;
   --bg-card:          #FFFFFF;
-  --bg-card-hover:    #FAF7F2;
-  --bg-glass:         rgba(250, 247, 242, 0.88);
+  --bg-card-hover:    #FAF5FD;
+  --bg-glass:         rgba(250, 246, 253, 0.88);
+  --bg-tint-badge:    rgba(244, 231, 251, 0.85);
 
   /* ── Borders ── */
-  --border-subtle:    #E8E1DA;
-  --border-strong:    #D4C9BE;
-  --border-active:    #4D1526;
-  --border-accent:    rgba(77, 21, 38, 0.3);
+  --border-subtle:    #EADBEE;
+  --border-strong:    #D5C2E2;
+  --border-active:    #86469C;
+  --border-accent:    rgba(134, 70, 156, 0.3);
 
   /* ── Text ── */
-  --text-primary:     #1F1B18;
-  --text-secondary:   #6B625A;
-  --text-muted:       #8A8178;
+  --text-primary:     #22182B;
+  --text-secondary:   #584B66;
+  --text-muted:       #8B7B9A;
   --text-inverse:     #FFFFFF;
 
-  /* ── Accent ── */
-  --accent-primary:   #4D1526;
-  --accent-hover:     #3a0f1c;
-  --accent-emerald:   #4D1526;
-  --accent-indigo:    #4D1526;
-  --accent-white:     #4D1526;
-  --accent-glow:      rgba(77, 21, 38, 0.12);
+  /* ── Accent & Gradients ── */
+  --accent-primary:   #86469C;
+  --accent-hover:     #6E3383;
+  --accent-secondary: #A65396;
+  --accent-emerald:   #86469C;
+  --accent-indigo:    #86469C;
+  --accent-white:     #86469C;
+  --accent-glow:      rgba(134, 70, 156, 0.16);
+  --accent-glow-card: rgba(200, 168, 233, 0.25);
+  --accent-gradient:  linear-gradient(135deg, #C3C7F4 0%, #C8A8E9 30%, #E3AADD 65%, #F6BCBA 100%);
+  --accent-gradient-btn: linear-gradient(135deg, #86469C 0%, #A65396 100%);
 
   /* ── Typography ── */
   --font-sans:    'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -207,18 +220,18 @@ section[id] {
 }
 
 .btn-primary {
-  background-color: var(--accent-primary);
+  background: var(--accent-gradient-btn);
   color: #ffffff;
-  border: 1.5px solid var(--accent-primary);
-  box-shadow: 0 4px 14px rgba(77, 21, 38, 0.2);
+  border: 1.5px solid transparent;
+  box-shadow: 0 4px 16px var(--accent-glow);
 }
 
 .btn-primary:hover {
-  background-color: var(--accent-hover);
-  border-color: var(--accent-hover);
+  background: linear-gradient(135deg, var(--accent-hover) 0%, var(--accent-primary) 100%);
+  border-color: transparent;
   color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(77, 21, 38, 0.3);
+  box-shadow: 0 8px 24px rgba(134, 70, 156, 0.28);
 }
 
 .btn-primary * {
@@ -229,7 +242,7 @@ section[id] {
   background-color: #ffffff;
   color: var(--text-primary);
   border: 1.5px solid var(--border-strong);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 8px rgba(134, 70, 156, 0.05);
 }
 
 .btn-secondary:hover {
@@ -237,7 +250,7 @@ section[id] {
   border-color: var(--accent-primary);
   color: var(--accent-primary);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(77, 21, 38, 0.12);
+  box-shadow: 0 6px 18px var(--accent-glow);
 }
 
 .btn-icon {
@@ -258,9 +271,9 @@ section[id] {
 .btn-icon:hover {
   color: var(--accent-primary);
   border-color: var(--accent-primary);
-  background: #fff5f7;
+  background: var(--palette-lavender-white);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(77, 21, 38, 0.12);
+  box-shadow: 0 4px 14px var(--accent-glow);
 }
 
 /* ── Badges ── */
@@ -273,8 +286,8 @@ section[id] {
   font-family: var(--font-mono);
   font-size: 0.775rem;
   font-weight: 500;
-  background-color: #fff5f7;
-  border: 1px solid rgba(77, 21, 38, 0.15);
+  background: var(--bg-tint-badge);
+  border: 1px solid var(--border-strong);
   color: var(--text-secondary);
   transition: all var(--transition-fast);
 }
@@ -282,15 +295,15 @@ section[id] {
 .badge:hover {
   border-color: var(--accent-primary);
   color: var(--accent-primary);
-  background-color: #fff0f3;
+  background: var(--palette-lavender-white);
 }
 
 /* ── Grid Background Pattern ── */
 .bg-grid-pattern {
   background-size: 40px 40px;
   background-image:
-    linear-gradient(to right, rgba(31, 27, 24, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(31, 27, 24, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(134, 70, 156, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(134, 70, 156, 0.04) 1px, transparent 1px);
 }
 
 /* ── Scroll Reveal Animations ── */

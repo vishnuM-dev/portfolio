@@ -28,9 +28,9 @@
 }
 
 .tilt-card-wrapper:hover .tech-pill {
-  border-color: var(--accent-primary);
+  border-color: var(--palette-orchid-pink);
   color: var(--accent-primary);
-  background: #fff5f7;
+  background: var(--palette-lavender-white);
 }
 
 .project-card-footer-cta {

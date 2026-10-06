@@ -45,15 +45,14 @@
   margin-bottom: 1.1rem;
 }
 
-/* Availability badge — mirrors hero-badge style */
 .footer-status-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
   padding: 0.4rem 1rem;
   border-radius: var(--radius-full);
-  background: #fff5f7;
-  border: 1px solid rgba(77, 21, 38, 0.18);
+  background: linear-gradient(135deg, rgba(244, 231, 251, 0.9) 0%, rgba(242, 221, 220, 0.7) 100%);
+  border: 1px solid var(--border-strong);
   font-family: var(--font-mono);
   font-size: 0.78rem;
   color: var(--text-secondary);
@@ -137,11 +136,6 @@
   color: var(--text-muted);
   flex: 1;
   min-width: 200px;
-}
-
-.footer-subtext {
-  font-size: 0.85rem;
-  color: var(--text-muted);
 }
 
 /* Back-to-top sits at the far right */
