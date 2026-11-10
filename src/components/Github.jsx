@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import { BookOpen, ExternalLink } from 'lucide-react';
 import { GithubIcon } from './BrandIcons';

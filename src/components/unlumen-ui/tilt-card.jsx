@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import './tilt-card.css';
 
 /**
@@ -122,7 +124,7 @@ export function TiltCard({
 
   const wrappedCard = href ? (
     href.startsWith('/') && !href.startsWith('//') ? (
-      <Link to={href} className="tilt-card-wrapper" aria-label={title}>
+      <Link href={href} className="tilt-card-wrapper" aria-label={title}>
         {cardContent}
       </Link>
     ) : (

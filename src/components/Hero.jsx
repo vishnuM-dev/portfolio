@@ -1,5 +1,7 @@
-import React, { useMemo } from 'react';
-import { ArrowDown, FileText, Send, Mail, Code, Terminal, Sparkles } from 'lucide-react';
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import { ArrowDown, Send, Code, Terminal, Sparkles } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, NaukriIcon } from './BrandIcons';
 import BorderBeam from './BorderBeam';
 import RainbowButton from './RainbowButton';
@@ -7,19 +9,21 @@ import DownloadResumeButton from './DownloadResumeButton';
 import TextAnimate from './TextAnimate';
 import './Hero.css';
 
+const rolePhrases = [
+  "Associate Software Engineer | Java Full Stack Developer",
+  "Spring Boot & REST API Specialist",
+  "React.js Full Stack Engineer",
+  "Building Enterprise SaaS Applications"
+];
+
 export default function Hero() {
-  const rolePhrases = [
-    "Associate Software Engineer | Java Full Stack Developer",
-    "Spring Boot & REST API Specialist",
-    "React.js Full Stack Engineer",
-    "Building Enterprise SaaS Applications"
-  ];
+  const [selectedRole, setSelectedRole] = useState(rolePhrases[0]);
 
   // Pick one role randomly on page load — stays fixed for the entire session
-  const selectedRole = useMemo(
-    () => rolePhrases[Math.floor(Math.random() * rolePhrases.length)],
-    [] // eslint-disable-line react-hooks/exhaustive-deps
-  );
+  useEffect(() => {
+    const random = rolePhrases[Math.floor(Math.random() * rolePhrases.length)];
+    setSelectedRole(random);
+  }, []);
 
   return (
     <section id="home" className="hero-section bg-grid-pattern">

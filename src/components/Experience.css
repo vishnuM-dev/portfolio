@@ -1,196 +1,936 @@
 /* ==========================================================================
-   EXPERIENCE SECTION — Light Mode Only
+   EXPERIENCE SECTION — Exact Reference Design with Premium Animations
    ========================================================================== */
 
 .experience-section {
-  border-top: 1px solid var(--border-subtle);
-  background: var(--bg-primary);
-}
-
-.timeline-container {
   position: relative;
-  width: min(100%, 900px);
-  margin: 0 auto;
-  padding: 1rem 0;
+  border-top: none;
+  background: transparent;
+  overflow: hidden;
+  padding: clamp(3.5rem, 5vw, 5rem) 0;
 }
 
-.timeline-line {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 16px;
-  width: 2px;
-  background: linear-gradient(to bottom, var(--border-strong), var(--border-subtle));
-}
-
-.timeline-item {
+.experience-container {
   position: relative;
-  padding-left: clamp(48px, 5vw, 60px);
-  margin-bottom: clamp(1.5rem, 2.5vw, 2rem);
+  z-index: 2;
 }
 
-.timeline-item:last-child {
-  margin-bottom: 0;
+/* ── Top-Left Decorative Subtle Lavender Wave (Hidden for Seamless Flow) ── */
+.experience-bg-decorative-waves {
+  display: none;
 }
 
-.timeline-marker {
+/* ── Subtle Ambient Animated Radial Background Gradients (18–25s) ── */
+.experience-bg-glow-1,
+.experience-bg-glow-2 {
   position: absolute;
-  left: 6px;
-  top: 6px;
-  width: 20px;
-  height: 20px;
   border-radius: 50%;
-  background: var(--bg-primary);
-  border: 2px solid var(--border-strong);
+  filter: blur(95px);
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform, opacity;
+}
+
+.experience-bg-glow-1 {
+  width: 520px;
+  height: 520px;
+  top: -90px;
+  right: -90px;
+  background: radial-gradient(
+    circle,
+    rgba(200, 168, 233, 0.20) 0%,
+    rgba(227, 170, 221, 0.10) 45%,
+    rgba(244, 231, 251, 0) 75%
+  );
+  animation: expAmbientFloatOne 22s ease-in-out infinite alternate;
+}
+
+.experience-bg-glow-2 {
+  width: 560px;
+  height: 560px;
+  bottom: -100px;
+  left: -80px;
+  background: radial-gradient(
+    circle,
+    rgba(195, 199, 244, 0.18) 0%,
+    rgba(246, 188, 186, 0.09) 45%,
+    rgba(247, 243, 252, 0) 75%
+  );
+  animation: expAmbientFloatTwo 26s ease-in-out infinite alternate;
+}
+
+@keyframes expAmbientFloatOne {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(-35px, 25px) scale(1.08);
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate(25px, -20px) scale(0.96);
+    opacity: 0.75;
+  }
+}
+
+@keyframes expAmbientFloatTwo {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.65;
+  }
+  50% {
+    transform: translate(40px, -30px) scale(1.06);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(-25px, 20px) scale(0.95);
+    opacity: 0.7;
+  }
+}
+
+/* ── 1. Experience Header Row (2 Columns: Left Content, Right Workspace) ── */
+.experience-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+  margin-bottom: 3.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.experience-header-left {
+  flex: 1.25;
+  max-width: 620px;
+}
+
+/* Tag Pill: "Work Experience" */
+.experience-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.38rem 0.95rem;
+  background: var(--bg-surface, #F1E9F7);
+  border: 1px solid var(--border-subtle, #E6DCEC);
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--accent-primary);
+  margin-bottom: 0.9rem;
+  box-shadow: 0 2px 8px rgba(136, 70, 159, 0.08);
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.experience-tag.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tag-briefcase-icon {
+  color: var(--accent-primary);
+  flex-shrink: 0;
+}
+
+/* Heading: "Professional Experience" */
+.experience-heading {
+  font-size: clamp(2.15rem, 3.8vw, 2.9rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.025em;
+  line-height: 1.18;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.08s,
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.08s;
+  will-change: opacity, transform;
+}
+
+.experience-heading.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Curved Purple Swoop Underline beneath "Experience" */
+.title-underline-wrapper {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.curved-underline-svg {
+  width: 175px;
+  height: 12px;
+  margin-top: -6px;
+  overflow: visible;
+}
+
+/* Purple Gradient Shimmer */
+.shimmer-text {
+  display: inline-block;
+  background: linear-gradient(
+    110deg,
+    #88469F 0%,
+    #B27BC3 25%,
+    #F1E9F7 50%,
+    #B27BC3 75%,
+    #88469F 100%
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: expPurpleShimmer 5.5s ease-in-out infinite;
+}
+
+@keyframes expPurpleShimmer {
+  0% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+/* Description with vertical purple accent line beside it */
+.experience-desc-wrapper {
+  display: flex;
+  align-items: stretch;
+  gap: 1rem;
+  margin-top: 1.1rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.22s,
+    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.22s;
+  will-change: opacity, transform;
+}
+
+.experience-desc-wrapper.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.experience-vertical-line {
+  width: 2.5px;
+  background: linear-gradient(to bottom, #88469F 0%, #B27BC3 100%);
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.experience-description {
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 540px;
+}
+
+/* ── Right Column: 3D Workspace Developer Illustration ── */
+.experience-illustration-wrapper {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 440px;
+  opacity: 0;
+  transform: translateY(22px) scale(0.97);
+  transition:
+    opacity 1.25s cubic-bezier(0.16, 1, 0.3, 1) 0.18s,
+    transform 1.25s cubic-bezier(0.16, 1, 0.3, 1) 0.18s;
+  will-change: opacity, transform;
+}
+
+.experience-illustration-wrapper.is-revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.exp-illustration-container {
+  position: relative;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2;
-  transition: all var(--transition-fast);
+  user-select: none;
 }
 
-.marker-dot {
+.exp-ambient-aura {
+  position: absolute;
+  width: 280px;
+  height: 180px;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(178, 123, 195, 0.28) 0%,
+    rgba(136, 70, 159, 0.16) 40%,
+    rgba(200, 168, 233, 0.06) 65%,
+    transparent 78%
+  );
+  filter: blur(28px);
+  pointer-events: none;
+  animation: expGlowPulse 7s ease-in-out infinite alternate;
+}
+
+@keyframes expGlowPulse {
+  0% {
+    opacity: 0.55;
+    transform: translate(-50%, -50%) scale(0.96);
+  }
+  50% {
+    opacity: 0.88;
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+  100% {
+    opacity: 0.55;
+    transform: translate(-50%, -50%) scale(0.96);
+  }
+}
+
+.exp-tilt-wrapper {
+  position: relative;
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.exp-illustration-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+/* Continuous Slow Floating Animations */
+.exp-float-laptop {
+  animation: expLaptopFloat 6.5s ease-in-out infinite;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+@keyframes expLaptopFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+.exp-float-code-panel {
+  animation: expCodePanelFloat 5.6s ease-in-out infinite;
+  transform-origin: 345px 110px;
+  will-change: transform;
+}
+
+@keyframes expCodePanelFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+.exp-float-plant {
+  animation: expPlantFloat 7.2s ease-in-out infinite;
+  transform-origin: 85px 230px;
+  will-change: transform;
+}
+
+@keyframes expPlantFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.exp-float-mug {
+  animation: expMugFloat 6.8s ease-in-out infinite;
+  transform-origin: 129px 245px;
+  will-change: transform;
+}
+
+@keyframes expMugFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.exp-float-books {
+  animation: expBooksFloat 7s ease-in-out infinite;
+  transform-origin: 360px 240px;
+  will-change: transform;
+}
+
+@keyframes expBooksFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* ── 3. Professional Timeline Layout ── */
+.experience-timeline-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.experience-timeline-layout.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Timeline Left Column: Date & Duration Badges */
+.timeline-sidebar-col {
+  width: 125px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.65rem;
+  padding-top: 1.5rem;
+}
+
+.timeline-date-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 0.5rem 0.85rem;
+  box-shadow: 0 4px 14px rgba(136, 70, 159, 0.05);
+  text-align: center;
+  width: 100%;
+}
+
+.timeline-date-month {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.timeline-date-status {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--accent-primary);
+  line-height: 1.2;
+}
+
+.timeline-duration-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.32rem 0.65rem;
+  background: var(--bg-surface, #F1E9F7);
+  border: 1px solid var(--border-subtle, #E6DCEC);
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent-hover, #713786);
+  white-space: nowrap;
+}
+
+.duration-clock-icon {
+  color: var(--accent-primary);
+  flex-shrink: 0;
+}
+
+/* Timeline Center: Vertical Purple Line with Glowing Marker */
+.timeline-spine-col {
+  position: relative;
+  width: 24px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-self: stretch;
+}
+
+.timeline-vertical-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    rgba(136, 70, 159, 0.6) 0%,
+    rgba(200, 168, 233, 0.45) 50%,
+    rgba(230, 220, 236, 0.2) 100%
+  );
+  border-radius: 2px;
+}
+
+/* Glowing Circular Marker Aligned with Card Top */
+.timeline-glowing-marker {
+  position: sticky;
+  top: 100px;
+  margin-top: 2rem;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 2.5px solid var(--accent-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 16px rgba(136, 70, 159, 0.4), 0 0 0 4px rgba(200, 168, 233, 0.25);
+  z-index: 3;
+}
+
+.marker-core-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: var(--accent-primary);
+  background: linear-gradient(135deg, #88469F 0%, #B27BC3 100%);
 }
 
-.timeline-item:hover .timeline-marker {
-  border-color: var(--accent-primary);
-  box-shadow: 0 0 14px var(--accent-glow);
+/* Timeline Right: Large Experience Glass Card */
+.timeline-card-col {
+  flex: 1;
 }
 
-.timeline-card {
+/* ── 4. Experience Card – Premium Glass Design ── */
+.experience-glass-card {
   background: #ffffff;
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  padding: clamp(1.25rem, 3vw, 2rem);
-  transition: all var(--transition-normal);
+  border-radius: 24px;
+  padding: 2.2rem 2.4rem;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  box-shadow: 0 8px 30px rgba(136, 70, 159, 0.06);
+  transition:
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.timeline-card:hover {
-  transform: translateX(6px);
-  border-color: var(--accent-primary);
-  box-shadow: 0 12px 36px var(--accent-glow), 0 2px 10px rgba(200, 168, 233, 0.15);
+/* Card Hover Elevation & Subtle Glow */
+.experience-glass-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(136, 70, 159, 0.55);
+  box-shadow:
+    0 20px 42px rgba(136, 70, 159, 0.12),
+    0 4px 16px rgba(200, 168, 233, 0.18),
+    0 0 0 1px rgba(136, 70, 159, 0.16);
 }
 
-.card-top {
+/* Decorative subtle lavender corner accent */
+.exp-card-corner-accent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(
+    circle at top right,
+    rgba(200, 168, 233, 0.32) 0%,
+    rgba(227, 170, 221, 0.12) 45%,
+    transparent 74%
+  );
+  border-top-right-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Soft Highlight Sweep on Hover */
+.exp-card-shine {
+  position: absolute;
+  top: 0;
+  left: -140%;
+  width: 90%;
+  height: 100%;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0) 25%,
+    rgba(255, 255, 255, 0.65) 50%,
+    rgba(200, 168, 233, 0.28) 65%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  transition: left 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.experience-glass-card:hover .exp-card-shine {
+  left: 140%;
+}
+
+/* ── Card Header ── */
+.exp-card-header {
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 0.75rem 1rem;
-  margin-bottom: 1rem;
-}
-
-.role-title {
-  font-size: clamp(1.15rem, 1.8vw + 0.4rem, 1.35rem);
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.company-name {
-  font-size: clamp(0.95rem, 1vw + 0.4rem, 1.05rem);
-  font-weight: 500;
-  color: var(--text-secondary);
-}
-
-.meta-group {
-  display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: 0.5rem 1rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  position: relative;
+  z-index: 2;
 }
 
-.meta-item {
-  font-family: var(--font-mono);
-  font-size: 0.825rem;
-  color: var(--text-muted);
+.exp-card-company-group {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+}
+
+/* Company Logo Box: Purple gradient square with stylized white "S" */
+.company-logo-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #88469F 0%, #B27BC3 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(136, 70, 159, 0.25);
+  flex-shrink: 0;
+}
+
+.exp-company-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.exp-role-title {
+  font-size: clamp(1.2rem, 1.6vw + 0.3rem, 1.38rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.exp-company-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: 0.25rem 0 0 0;
+}
+
+/* Header Metadata Items */
+.exp-card-meta-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.65rem 0.9rem;
+}
+
+.exp-meta-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-muted);
 }
 
-.timeline-desc {
-  font-size: clamp(0.925rem, 1vw + 0.4rem, 1rem);
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
+.meta-icon {
+  color: var(--accent-primary);
+  flex-shrink: 0;
 }
 
-.responsibilities-block,
-.achievements-block {
-  margin-bottom: 1.5rem;
-}
-
-.block-label {
-  font-family: var(--font-heading);
-  font-size: 0.9rem;
+.exp-type-pill {
+  padding: 0.28rem 0.85rem;
+  background: #88469F;
+  color: #ffffff;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
   font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.75rem;
-  display: flex;
+  box-shadow: 0 2px 8px rgba(136, 70, 159, 0.25);
+}
+
+/* ── 5. Professional Summary ── */
+.exp-summary-text {
+  font-size: 0.95rem;
+  color: var(--text-secondary, #62576D);
+  line-height: 1.6;
+  margin: 1.25rem 0 1.4rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* ── 6. Key Responsibilities & Engineering Contributions ── */
+.exp-responsibilities-section {
+  position: relative;
+  z-index: 2;
+}
+
+.exp-block-label {
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  padding: 0.38rem 0.9rem;
+  background: var(--bg-surface, #F1E9F7);
+  border: 1px solid var(--border-subtle, #E6DCEC);
+  border-radius: 10px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.15rem;
 }
 
-.responsibilities-list {
+.label-settings-icon {
+  color: var(--accent-primary);
+  flex-shrink: 0;
+}
+
+.exp-responsibilities-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
 }
 
-.responsibilities-list li {
+.exp-resp-item {
   display: flex;
   align-items: flex-start;
-  gap: 0.6rem;
-  font-size: 0.925rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: #4D3D60;
+  line-height: 1.55;
 }
 
-.list-icon {
+.exp-check-icon {
   color: var(--accent-primary);
   flex-shrink: 0;
-  margin-top: 3px;
+  margin-top: 0.2rem;
 }
 
-.achievements-list {
-  list-style-type: disc;
-  padding-left: 1.25rem;
+/* Divider Line */
+.exp-card-divider {
+  border-top: 1px solid var(--border-subtle);
+  margin: 1.6rem 0 1.4rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* ── 7. Technology Stack Section ── */
+.exp-tech-stack-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.exp-tech-label-col {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+
+.tech-stack-layers-icon {
+  color: var(--accent-primary);
+}
+
+.tech-stack-text {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
-  font-size: 0.925rem;
-  color: var(--text-secondary);
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.15;
 }
 
-.timeline-tech-group {
+.exp-tech-badges-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--border-subtle);
+  align-items: center;
 }
 
-@media (hover: none) {
-  .timeline-card:hover {
-    transform: none;
-    box-shadow: none;
+.exp-tech-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  padding: 0.4rem 0.78rem;
+  background: var(--bg-surface, #F1E9F7);
+  border: 1px solid var(--border-subtle, #E6DCEC);
+  border-radius: var(--radius-full);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-primary, #241B30);
+  line-height: 1.2;
+  transition:
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+}
+
+.exp-tech-pill:hover {
+  transform: translateY(-2px) scale(1.04);
+  background: #FFFFFF;
+  border-color: var(--accent-secondary, #B27BC3);
+  box-shadow: 0 4px 14px rgba(136, 70, 159, 0.16);
+}
+
+.exp-tech-icon {
+  color: var(--accent-primary);
+  flex-shrink: 0;
+}
+
+/* ── 9. Responsive Adaptations ── */
+@media (max-width: 1100px) {
+  .experience-header-row {
+    gap: 1.5rem;
+  }
+
+  .experience-illustration-wrapper {
+    max-width: 360px;
   }
 }
 
-@media (max-width: 480px) {
-  .timeline-container {
-    padding: 1.5rem 0;
-  }
-  .card-top {
+@media (max-width: 900px) {
+  .experience-header-row {
     flex-direction: column;
-    gap: 0.5rem;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    margin-bottom: 2.75rem;
   }
-  .meta-group {
-    gap: 0.4rem 0.75rem;
+
+  .experience-header-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .experience-desc-wrapper {
+    justify-content: center;
+  }
+
+  .experience-vertical-line {
+    display: none;
+  }
+
+  .experience-timeline-layout {
+    flex-direction: column;
+  }
+
+  .timeline-sidebar-col {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 0;
+    margin-bottom: 0.75rem;
+  }
+
+  .timeline-date-card {
+    width: auto;
+    flex-direction: row;
+    gap: 0.35rem;
+  }
+
+  .timeline-spine-col {
+    display: none;
+  }
+
+  .experience-glass-card {
+    padding: 1.6rem;
+  }
+
+  .exp-tech-stack-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.9rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .experience-section {
+    padding: 3.5rem 0;
+  }
+
+  .experience-glass-card {
+    padding: 1.25rem;
+    border-radius: 18px;
+  }
+
+  .exp-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .exp-role-title {
+    font-size: 1.15rem;
+  }
+
+  .exp-tech-pill {
+    padding: 0.32rem 0.65rem;
+    font-size: 0.74rem;
+  }
+}
+
+/* ── Prefers-Reduced-Motion Accessibility ── */
+@media (prefers-reduced-motion: reduce) {
+  .experience-tag,
+  .experience-heading,
+  .experience-desc-wrapper,
+  .experience-illustration-wrapper,
+  .experience-timeline-layout,
+  .experience-glass-card,
+  .exp-card-shine,
+  .exp-tech-pill,
+  .shimmer-text,
+  .exp-ambient-aura,
+  .exp-float-laptop,
+  .exp-float-code-panel,
+  .exp-float-plant,
+  .exp-float-mug,
+  .exp-float-books,
+  .experience-bg-glow-1,
+  .experience-bg-glow-2 {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  .exp-tilt-wrapper {
+    transform: none !important;
   }
 }

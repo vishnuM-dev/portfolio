@@ -3,8 +3,8 @@
    ========================================================================== */
 
 .about-section {
-  border-top: 1px solid var(--border-subtle);
-  background: var(--bg-primary);
+  border-top: none;
+  background: transparent;
 }
 
 .about-content-wrapper {
@@ -138,19 +138,14 @@
 }
 
 /* ── Responsive ── */
-@media (max-width: 990px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  .about-image-column {
-    display: none !important;
-  }
-}
-
 @media (max-width: 640px) {
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  .stat-card {
+    padding: 1rem 0.6rem;
+    min-height: 95px;
   }
   .about-actions {
     flex-wrap: wrap;

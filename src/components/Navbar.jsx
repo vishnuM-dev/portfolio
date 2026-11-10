@@ -1,7 +1,9 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useRouter, usePathname } from 'next/navigation';
+import Link from 'next/link';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
-import RainbowButton from './RainbowButton';
 import './Navbar.css';
 
 const navLinks = [
@@ -11,60 +13,78 @@ const navLinks = [
   { name: 'Experience', href: '#experience' },
   { name: 'Projects',   href: '#projects' },
   { name: 'Education',  href: '#education' },
-  { name: 'Contact',    href: '#contact' },
 ];
 
 export default function Navbar() {
   const [isScrolled,      setIsScrolled]      = useState(false);
   const [mobileMenuOpen,  setMobileMenuOpen]  = useState(false);
   const [activeSection,   setActiveSection]   = useState('home');
-  const navigate  = useNavigate();
-  const location  = useLocation();
+  const router   = useRouter();
+  const pathname = usePathname();
 
-  /* ── Scroll shadow ── */
+  /* ── Scroll detection for shadow & blur elevation ── */
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  /* ── Active section highlight ── */
+  /* ── Active section highlight observer ── */
   useEffect(() => {
-    if (location.pathname !== '/') {
+    if (pathname !== '/') {
       setActiveSection('');
       return;
     }
-    const sections = navLinks
-      .map(link => document.querySelector(link.href))
-      .filter(Boolean);
+    const sections = [
+      ...navLinks.map(link => document.querySelector(link.href)),
+      document.querySelector('#contact')
+    ].filter(Boolean);
 
     const observer = new IntersectionObserver(
-      entries => entries.forEach(e => { if (e.isIntersecting) setActiveSection(e.target.id); }),
-      { rootMargin: '-20% 0px -60% 0px', threshold: 0 }
+      entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            setActiveSection(e.target.id);
+          }
+        });
+      },
+      { rootMargin: '-20% 0px -55% 0px', threshold: 0 }
     );
     sections.forEach(s => observer.observe(s));
     return () => sections.forEach(s => observer.unobserve(s));
-  }, [location.pathname]);
+  }, [pathname]);
 
-  /* ── Lock body scroll when drawer open ── */
-  useEffect(() => {
-    document.body.style.overflow = mobileMenuOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
-  }, [mobileMenuOpen]);
-
-  /* ── Close drawer on resize to desktop ── */
+  /* ── Close mobile menu on resize to desktop ── */
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth > 990 && mobileMenuOpen) setMobileMenuOpen(false);
+      if (window.innerWidth > 1040 && mobileMenuOpen) {
+        setMobileMenuOpen(false);
+        document.body.style.overflow = '';
+      }
     };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, [mobileMenuOpen]);
 
-  /* ── Close drawer on ESC ── */
+  /* ── Lock background scroll while mobile menu is open ── */
   useEffect(() => {
-    const handleKeyDown = e => {
-      if (e.key === 'Escape' && mobileMenuOpen) setMobileMenuOpen(false);
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
+  /* ── Close mobile menu on ESC ── */
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && mobileMenuOpen) {
+        setMobileMenuOpen(false);
+        document.body.style.overflow = '';
+      }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
@@ -74,113 +94,121 @@ export default function Navbar() {
 
   const handleNavClick = (href) => {
     setMobileMenuOpen(false);
-    if (location.pathname !== '/') {
-      navigate('/');
-      setTimeout(() => {
-        const el = document.querySelector(href);
-        if (el) {
-          window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - 85, behavior: 'smooth' });
-        }
-      }, 100);
+    document.body.style.overflow = '';
+    if (pathname !== '/') {
+      router.push('/' + href);
       return;
     }
     const el = document.querySelector(href);
     if (el) {
-      window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - 85, behavior: 'smooth' });
+      const targetTop = href === '#home' ? 0 : el.getBoundingClientRect().top + window.pageYOffset - 85;
+      window.scrollTo({
+        top: targetTop,
+        behavior: 'smooth'
+      });
     }
   };
 
   return (
-    <header className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`}>
-      <div className="container navbar-container">
-
-        {/* Brand */}
-        <a href="#home" className="navbar-brand" onClick={() => handleNavClick('#home')}>
+    <header className={`navbar-wrapper ${isScrolled ? 'is-scrolled' : ''}`}>
+      {/* ── Main Floating Glassmorphism Pill ── */}
+      <div className="navbar-floating-pill">
+        {/* Brand Logo */}
+        <Link
+          href="/#home"
+          className="navbar-brand"
+          onClick={(e) => { e.preventDefault(); handleNavClick('#home'); }}
+          aria-label="Vishnu Reddy - Home"
+        >
           <span className="brand-name">Vishnu Reddy</span>
-        </a>
+        </Link>
 
-        {/* Desktop Nav */}
+        {/* Desktop Navigation Links */}
         <nav className="desktop-nav" aria-label="Main Navigation">
           <ul className="nav-list">
-            {navLinks.map(link => (
-              <li key={link.name}>
-                <a
-                  href={link.href}
-                  className={`nav-link ${activeSection === link.href.substring(1) ? 'active' : ''}`}
-                  onClick={e => { e.preventDefault(); handleNavClick(link.href); }}
-                >
-                  {link.name}
-                  {activeSection === link.href.substring(1) && <span className="active-dot" />}
-                </a>
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.substring(1);
+              return (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className={`nav-link ${isActive ? 'active' : ''}`}
+                    onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
+                  >
+                    <span>{link.name}</span>
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </nav>
 
-        {/* Actions */}
+        {/* Right Actions: Contact Me button & Mobile Toggle */}
         <div className="navbar-actions">
-          <RainbowButton
+          <a
             href="#contact"
-            className="rainbow-button-sm desktop-only"
-            onClick={e => { e.preventDefault(); handleNavClick('#contact'); }}
+            className={`nav-contact-pill desktop-only ${activeSection === 'contact' ? 'active' : ''}`}
+            onClick={(e) => { e.preventDefault(); handleNavClick('#contact'); }}
           >
             <span>Contact Me</span>
-            <ArrowUpRight size={16} />
-          </RainbowButton>
+            <ArrowUpRight size={15} className="contact-arrow-icon" />
+          </a>
 
           <button
+            type="button"
             className="mobile-toggle"
             onClick={toggleMobileMenu}
             aria-label={mobileMenuOpen ? 'Close Menu' : 'Open Menu'}
             aria-expanded={mobileMenuOpen}
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Drawer */}
-      <div className={`mobile-drawer ${mobileMenuOpen ? 'open' : ''}`} aria-hidden={!mobileMenuOpen}>
-        <div className="mobile-drawer-header">
-          <a href="#home" className="navbar-brand" onClick={() => handleNavClick('#home')}>
-            <span className="brand-name">Vishnu Reddy</span>
-          </a>
-          <div className="mobile-drawer-actions">
-            <button className="mobile-toggle" onClick={toggleMobileMenu} aria-label="Close Menu">
-              <X size={26} />
-            </button>
-          </div>
-        </div>
-
-        <nav className="mobile-nav">
-          <ul className="mobile-nav-list">
-            {navLinks.map((link, idx) => (
-              <li key={link.name} style={{ animationDelay: `${0.1 + idx * 0.05}s` }}>
+      {/* ── Mobile Glassmorphism Dropdown Menu ── */}
+      <div
+        className={`mobile-glass-dropdown ${mobileMenuOpen ? 'is-open' : ''}`}
+        aria-hidden={!mobileMenuOpen}
+      >
+        <ul className="mobile-dropdown-list">
+          {navLinks.map((link, idx) => {
+            const isActive = activeSection === link.href.substring(1);
+            return (
+              <li key={link.name}>
                 <a
                   href={link.href}
-                  className={`mobile-nav-link ${activeSection === link.href.substring(1) ? 'active' : ''}`}
-                  onClick={e => { e.preventDefault(); handleNavClick(link.href); }}
+                  className={`mobile-dropdown-link ${isActive ? 'active' : ''}`}
+                  onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
                 >
-                  <span className="mobile-nav-num">0{idx + 1}.</span>
-                  {link.name}
+                  <span className="mobile-link-num">0{idx + 1}.</span>
+                  <span className="mobile-link-text">{link.name}</span>
                 </a>
               </li>
-            ))}
-          </ul>
-        </nav>
+            );
+          })}
+        </ul>
 
-        <div className="mobile-drawer-footer">
-          <p className="mobile-subtitle">Associate Software Engineer | Java Full Stack</p>
+        <div className="mobile-dropdown-footer">
           <a
             href="#contact"
-            className="btn btn-primary w-full"
-            onClick={e => { e.preventDefault(); handleNavClick('#contact'); }}
+            className="mobile-contact-pill-btn"
+            onClick={(e) => { e.preventDefault(); handleNavClick('#contact'); }}
           >
-            Contact Me
-            <ArrowUpRight size={18} />
+            <span>Contact Me</span>
+            <ArrowUpRight size={16} />
           </a>
         </div>
       </div>
+
+      {/* Mobile Backdrop Click Shield */}
+      {mobileMenuOpen && (
+        <div
+          className="mobile-backdrop"
+          onClick={() => setMobileMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
     </header>
   );
 }

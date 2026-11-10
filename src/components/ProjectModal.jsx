@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect } from 'react';
 import { X, ArrowUpRight, CheckCircle2, UserCheck, TrendingUp, Sparkles } from 'lucide-react';
 import { GithubIcon } from './BrandIcons';

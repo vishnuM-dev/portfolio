@@ -1,15 +1,44 @@
 /* ==========================================================================
-   GLOBAL APPLICATION LAYOUT — Light Mode Only
+   GLOBAL APPLICATION LAYOUT — Unified Seamless Canvas
    ========================================================================== */
 
 .portfolio-app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: var(--bg-primary);
+  background-color: var(--bg-primary, #F7F3FC);
   color: var(--text-primary);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Global Fixed Ambient Background Canvas (Seamless from Home to Footer) */
+.global-bg-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(circle 850px at 85% 10%, rgba(200, 168, 233, 0.14), transparent 70%),
+    radial-gradient(circle 900px at 15% 35%, rgba(195, 199, 244, 0.12), transparent 70%),
+    radial-gradient(circle 850px at 85% 60%, rgba(227, 170, 221, 0.11), transparent 70%),
+    radial-gradient(circle 900px at 15% 85%, rgba(200, 168, 233, 0.13), transparent 70%),
+    radial-gradient(circle 750px at 50% 100%, rgba(244, 231, 251, 0.18), transparent 70%);
+  will-change: transform;
 }
 
 #main-content {
   flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.footer {
+  position: relative;
+  z-index: 1;
 }

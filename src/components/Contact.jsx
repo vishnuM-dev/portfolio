@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useState } from 'react';
-import { Mail, Phone, Send, MessageSquare, CheckCircle, AlertCircle } from 'lucide-react';
+import { Mail, Phone, Send, MessageSquare, CheckCircle, AlertCircle, ArrowRight, Loader2 } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './BrandIcons';
 import './Contact.css';
 
@@ -51,7 +53,10 @@ export default function Contact() {
 
     setStatus('submitting');
 
-    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || 'fddb70b8-f73f-46d6-8da9-db2c070000ba';
+    const accessKey =
+      process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ||
+      process.env.VITE_WEB3FORMS_ACCESS_KEY ||
+      'fddb70b8-f73f-46d6-8da9-db2c070000ba';
 
     try {
       const web3FormData = new FormData();
@@ -85,209 +90,244 @@ export default function Contact() {
 
   return (
     <section id="contact" className="section contact-section">
-      <div className="container">
-        {/* Section Header */}
-        <div className="contact-header reveal-on-scroll">
-          <div className="section-tag">
-            <MessageSquare size={16} />
-            <span>07 / Contact</span>
-          </div>
-          <h2 className="section-title">
-            Get In Touch.
-          </h2>
-          <p className="section-description">
-            Feel free to reach out for software engineering roles, project discussions, or technology inquiries.
-          </p>
-        </div>
+      {/* Subtle Ambient Radial Lighting */}
+      <div className="contact-bg-glow contact-bg-glow-left" aria-hidden="true" />
+      <div className="contact-bg-glow contact-bg-glow-right" aria-hidden="true" />
 
-        <div className="contact-grid">
-          {/* Left Column: Direct Contact Info Cards */}
-          <div className="contact-cards-column reveal-on-scroll">
-            <a
-              href="mailto:vishnumatamala10@gmail.com"
-              className="contact-info-card"
-            >
-              <div className="contact-icon-wrapper">
-                <Mail size={22} />
-              </div>
-              <div>
-                <span className="contact-card-label">Email</span>
-                <span className="contact-card-value">vishnumatamala10@gmail.com</span>
-              </div>
-            </a>
+      <div className="container contact-container">
+        <div className="contact-editorial-grid">
 
-            <a
-              href="tel:+918074407095"
-              className="contact-info-card"
-            >
-              <div className="contact-icon-wrapper">
-                <Phone size={22} />
-              </div>
-              <div>
-                <span className="contact-card-label">Phone</span>
-                <span className="contact-card-value">+91 80744 07095</span>
-              </div>
-            </a>
+          {/* 1. Left Editorial Intro Area (~45% on desktop, 1st on mobile) */}
+          <div className="contact-intro-block reveal-on-scroll">
+            <div className="contact-tag">
+              <MessageSquare size={13} className="contact-tag-icon" />
+              <span>07 / CONTACT</span>
+            </div>
 
-            <a
-              href="https://www.linkedin.com/in/matamalavishnu/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="contact-info-card"
-            >
-              <div className="contact-icon-wrapper">
-                <LinkedinIcon size={22} />
-              </div>
-              <div>
-                <span className="contact-card-label">LinkedIn</span>
-                <span className="contact-card-value">linkedin.com/in/matamalavishnu</span>
-              </div>
-            </a>
-
-            <a
-              href="https://github.com/vishnu-reddy-dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="contact-info-card"
-            >
-              <div className="contact-icon-wrapper">
-                <GithubIcon size={22} />
-              </div>
-              <div>
-                <span className="contact-card-label">GitHub</span>
-                <span className="contact-card-value">github.com/vishnu-reddy-dev</span>
-              </div>
-            </a>
+            <h2 className="contact-heading">
+              Let&apos;s build something{' '}
+              <span className="contact-heading-accent">meaningful.</span>
+            </h2>
           </div>
 
-          {/* Right Column: Contact Form */}
-          <div className="contact-form-column reveal-on-scroll">
-            <form onSubmit={handleSubmit} className="contact-form" noValidate>
-              {status === 'success' && (
-                <div className="form-alert success">
-                  <CheckCircle size={20} />
-                  <span>Message sent successfully! I'll get back to you soon.</span>
+          {/* 2. Right Column — Floating Contact Form Card (~55% on desktop, 2nd on mobile) */}
+          <div className="contact-form-block reveal-on-scroll">
+            <div className="contact-form-card">
+              <div className="contact-form-header">
+                <h3 className="contact-form-title">Send a Message</h3>
+                <p className="contact-form-subtitle">
+                  Got an inquiry or project? Drop your message below.
+                </p>
+              </div>
+
+              <form onSubmit={handleSubmit} className="contact-form-element" noValidate>
+                {status === 'success' && (
+                  <div className="contact-alert contact-alert-success" role="alert">
+                    <CheckCircle size={18} className="alert-icon" />
+                    <span>Message sent successfully! I&apos;ll get back to you soon.</span>
+                  </div>
+                )}
+
+                {status === 'error' && (
+                  <div className="contact-alert contact-alert-error" role="alert">
+                    <AlertCircle size={18} className="alert-icon" />
+                    <span>Unable to send your message. Please try again or email directly.</span>
+                  </div>
+                )}
+
+                {/* Name & Email Row (Side by side on desktop) */}
+                <div className="contact-form-row-dual">
+                  <div className="contact-field-group">
+                    <label htmlFor="contact-name" className="contact-field-label">
+                      Your Name <span className="required-star">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="contact-name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="e.g. John Doe"
+                      className={`contact-input ${errors.name ? 'has-error' : ''}`}
+                      disabled={status === 'submitting'}
+                      autoComplete="name"
+                    />
+                    {errors.name && (
+                      <span className="contact-field-error">
+                        <AlertCircle size={13} />
+                        {errors.name}
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="contact-field-group">
+                    <label htmlFor="contact-email" className="contact-field-label">
+                      Your Email <span className="required-star">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      id="contact-email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="e.g. john@example.com"
+                      className={`contact-input ${errors.email ? 'has-error' : ''}`}
+                      disabled={status === 'submitting'}
+                      autoComplete="email"
+                    />
+                    {errors.email && (
+                      <span className="contact-field-error">
+                        <AlertCircle size={13} />
+                        {errors.email}
+                      </span>
+                    )}
+                  </div>
                 </div>
-              )}
 
-              {status === 'error' && (
-                <div
-                  className="form-alert error"
-                  style={{
-                    background: 'rgba(239, 68, 68, 0.1)',
-                    border: '1px solid rgba(239, 68, 68, 0.3)',
-                    color: '#ef4444',
-                    padding: '1rem',
-                    borderRadius: '8px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.75rem',
-                    marginBottom: '1rem'
-                  }}
+                {/* Subject Field (Full Width) */}
+                <div className="contact-field-group">
+                  <label htmlFor="contact-subject" className="contact-field-label">
+                    Subject
+                  </label>
+                  <input
+                    type="text"
+                    id="contact-subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    placeholder="e.g. Job Opportunity / Project Discussion"
+                    className="contact-input"
+                    disabled={status === 'submitting'}
+                  />
+                </div>
+
+                {/* Message Field (Full Width) */}
+                <div className="contact-field-group">
+                  <label htmlFor="contact-message" className="contact-field-label">
+                    Your Message <span className="required-star">*</span>
+                  </label>
+                  <textarea
+                    id="contact-message"
+                    name="message"
+                    rows={4}
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Tell me about your project, timeline, or job opportunity..."
+                    className={`contact-input contact-textarea ${errors.message ? 'has-error' : ''}`}
+                    disabled={status === 'submitting'}
+                  />
+                  {errors.message && (
+                    <span className="contact-field-error">
+                      <AlertCircle size={13} />
+                      {errors.message}
+                    </span>
+                  )}
+                </div>
+
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  disabled={status === 'submitting'}
+                  className="contact-submit-btn"
+                  aria-label="Send Message"
                 >
-                  <AlertCircle size={20} />
-                  <span>Unable to send your message. Please try again.</span>
-                </div>
-              )}
-
-              <div className="form-group">
-                <label htmlFor="name" className="form-label">
-                  Your Name <span className="required">*</span>
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="e.g. John Doe"
-                  className={`form-input ${errors.name ? 'invalid' : ''}`}
-                  disabled={status === 'submitting'}
-                />
-                {errors.name && (
-                  <span className="form-error">
-                    <AlertCircle size={14} />
-                    {errors.name}
-                  </span>
-                )}
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="email" className="form-label">
-                  Your Email <span className="required">*</span>
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="e.g. john@example.com"
-                  className={`form-input ${errors.email ? 'invalid' : ''}`}
-                  disabled={status === 'submitting'}
-                />
-                {errors.email && (
-                  <span className="form-error">
-                    <AlertCircle size={14} />
-                    {errors.email}
-                  </span>
-                )}
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="subject" className="form-label">
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  placeholder="e.g. Job Opportunity / Project Discussion"
-                  className="form-input"
-                  disabled={status === 'submitting'}
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="message" className="form-label">
-                  Your Message <span className="required">*</span>
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="5"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Tell me about your project, timeline, or job opportunity..."
-                  className={`form-input ${errors.message ? 'invalid' : ''}`}
-                  disabled={status === 'submitting'}
-                />
-                {errors.message && (
-                  <span className="form-error">
-                    <AlertCircle size={14} />
-                    {errors.message}
-                  </span>
-                )}
-              </div>
-
-              <button
-                type="submit"
-                disabled={status === 'submitting'}
-                className="btn btn-primary w-full"
-              >
-                {status === 'submitting' ? (
-                  <span>Sending...</span>
-                ) : (
-                  <>
-                    <span>Send Message</span>
-                    <Send size={18} />
-                  </>
-                )}
-              </button>
-            </form>
+                  {status === 'submitting' ? (
+                    <>
+                      <Loader2 size={18} className="btn-spinner" />
+                      <span>Sending Message...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Send Message</span>
+                      <Send size={16} className="btn-send-icon" />
+                    </>
+                  )}
+                </button>
+              </form>
+            </div>
           </div>
+
+          {/* 3. Minimal Interactive Contact Rows (Left column row 2 on desktop, 3rd on mobile) */}
+          <div className="contact-links-block reveal-on-scroll">
+            <div className="contact-links-list">
+              {/* Email Row */}
+              <a
+                href="mailto:vishnumatamala10@gmail.com"
+                className="contact-row-link"
+                aria-label="Email Vishnu"
+              >
+                <div className="contact-row-left">
+                  <div className="contact-row-icon-box">
+                    <Mail size={18} />
+                  </div>
+                  <div className="contact-row-meta">
+                    <span className="contact-row-label">Email</span>
+                    <span className="contact-row-value">vishnumatamala10@gmail.com</span>
+                  </div>
+                </div>
+                <ArrowRight size={17} className="contact-row-arrow" />
+              </a>
+
+              {/* Phone Row */}
+              <a
+                href="tel:+918074407095"
+                className="contact-row-link"
+                aria-label="Call Vishnu"
+              >
+                <div className="contact-row-left">
+                  <div className="contact-row-icon-box">
+                    <Phone size={18} />
+                  </div>
+                  <div className="contact-row-meta">
+                    <span className="contact-row-label">Phone</span>
+                    <span className="contact-row-value">+91 80744 07095</span>
+                  </div>
+                </div>
+                <ArrowRight size={17} className="contact-row-arrow" />
+              </a>
+
+              {/* LinkedIn Row */}
+              <a
+                href="https://www.linkedin.com/in/matamalavishnu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-row-link"
+                aria-label="LinkedIn Profile"
+              >
+                <div className="contact-row-left">
+                  <div className="contact-row-icon-box">
+                    <LinkedinIcon size={18} />
+                  </div>
+                  <div className="contact-row-meta">
+                    <span className="contact-row-label">LinkedIn</span>
+                    <span className="contact-row-value">linkedin.com/in/matamalavishnu</span>
+                  </div>
+                </div>
+                <ArrowRight size={17} className="contact-row-arrow" />
+              </a>
+
+              {/* GitHub Row */}
+              <a
+                href="https://github.com/vishnu-reddy-dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-row-link"
+                aria-label="GitHub Profile"
+              >
+                <div className="contact-row-left">
+                  <div className="contact-row-icon-box">
+                    <GithubIcon size={18} />
+                  </div>
+                  <div className="contact-row-meta">
+                    <span className="contact-row-label">GitHub</span>
+                    <span className="contact-row-value">github.com/vishnu-reddy-dev</span>
+                  </div>
+                </div>
+                <ArrowRight size={17} className="contact-row-arrow" />
+              </a>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
