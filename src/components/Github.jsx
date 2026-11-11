@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { BookOpen, ExternalLink } from 'lucide-react';
+import { BookOpen, ExternalLink, GitBranch, Star } from 'lucide-react';
 import { GithubIcon } from './BrandIcons';
 import './Github.css';
 
@@ -34,7 +34,7 @@ const featuredRepos = [
   },
   {
     name: "typing-master",
-    description: "Real-time typing test with WPM, accuracy tracking, leaderboards, and difficulty levels.",
+    description: "Real-time typing test with WPM, accuracy tracking, leaderboards, and dynamic DOM feedback.",
     language: "JavaScript",
     url: "https://github.com/vishnu-reddy-dev"
   }
@@ -76,20 +76,26 @@ export default function Github() {
         {/* Section Header */}
         <div className="github-header reveal-on-scroll">
           <div className="section-tag">
-            <GithubIcon size={16} />
+            <GithubIcon size={14} />
             <span>06 / Open Source</span>
           </div>
-          <h2 className="section-title">GitHub Profile &amp; Repositories.</h2>
+
+          <h2 className="section-title">
+            GitHub &amp; <span className="github-title-accent">Repositories.</span>
+          </h2>
+
           <p className="section-description">
-            Explore code repositories, application modules, and software development projects.
+            Explore code repositories, architectural implementations, and software development modules.
           </p>
         </div>
 
         {/* GitHub Overview Box */}
         <div className="github-overview-card reveal-on-scroll">
-          <div className="profile-badge-row">
-            <div className="user-info">
-              <GithubIcon size={32} className="github-brand-icon" />
+          <div className="github-profile-row">
+            <div className="github-user-group">
+              <div className="github-icon-circle">
+                <GithubIcon size={26} />
+              </div>
               <div>
                 <h3 className="profile-handle">@{profile.login}</h3>
                 <p className="profile-bio">{profile.bio}</p>
@@ -100,43 +106,39 @@ export default function Github() {
               href={profile.html_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-secondary btn-sm"
+              className="btn btn-primary github-profile-btn"
+              aria-label="View Vishnu's GitHub Profile"
             >
-              <span>View GitHub Profile</span>
-              <ExternalLink size={16} />
+              <span>View Profile</span>
+              <ExternalLink size={15} />
             </a>
           </div>
         </div>
 
-        {/* Featured Repositories Grid */}
-        <div className="github-repos-grid">
+        {/* Repositories Grid */}
+        <div className="repos-grid reveal-on-scroll">
           {repos.map((repo, idx) => (
             <a
               key={idx}
               href={repo.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="repo-card reveal-on-scroll"
+              className="repo-card"
+              aria-label={`Repository ${repo.name}`}
             >
-              <div className="repo-top">
+              <div className="repo-header">
+                <BookOpen size={16} className="repo-icon" />
                 <h4 className="repo-name">{repo.name}</h4>
-                <ExternalLink size={16} className="repo-link-icon" />
+                <ExternalLink size={14} className="repo-external-icon" />
               </div>
 
               <p className="repo-desc">{repo.description}</p>
 
               <div className="repo-footer">
-                <span className="repo-lang">
-                  <span className={`lang-dot ${repo.language.toLowerCase()}`} />
-                  {repo.language}
+                <span className="repo-lang-pill">
+                  <span className="lang-dot" />
+                  <span>{repo.language}</span>
                 </span>
-
-                <div className="repo-metrics">
-                  <span className="metric">
-                    <BookOpen size={14} />
-                    <span>Repository</span>
-                  </span>
-                </div>
               </div>
             </a>
           ))}

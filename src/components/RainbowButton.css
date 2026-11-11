@@ -1,26 +1,20 @@
 /* ==========================================================================
-   RAINBOW BUTTON — Light Mode Only
+   RAINBOW BUTTON — LAVENDER & PEARL WHITE THEME
    ========================================================================== */
-
-@keyframes rainbowAnimation {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
 
 .rainbow-button {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
-  padding: 0.85rem 1.75rem;
+  gap: 0.65rem;
+  padding: 0.82rem 1.65rem;
   border-radius: var(--radius-full);
   font-family: var(--font-heading);
   font-size: 0.925rem;
   font-weight: 600;
   letter-spacing: -0.01em;
-  color: var(--text-primary);
+  color: var(--primary-headings, #211B2B);
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -31,13 +25,11 @@
   z-index: 0;
 }
 
-/* Text/icons always on top */
 .rainbow-button > * {
   position: relative;
   z-index: 1;
 }
 
-/* Animated rainbow border layer */
 .rainbow-button::before {
   content: '';
   position: absolute;
@@ -45,28 +37,29 @@
   border-radius: var(--radius-full);
   background: linear-gradient(
     90deg,
-    #C3C7F4,
-    #C8A8E9,
-    #E3AADD,
-    #F6BCBA,
-    #F2DDDC,
-    #F1E9F7,
-    #C8A8E9,
-    #C3C7F4
+    #9870C2,
+    #E9D9F7,
+    #7B43A5,
+    #9870C2
   );
   background-size: 200% 200%;
-  animation: rainbowAnimation 4s linear infinite;
+  animation: lavenderBorderCycle 3.5s linear infinite;
   z-index: -1;
   pointer-events: none;
 }
 
-/* Solid white fill behind content */
+@keyframes lavenderBorderCycle {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 .rainbow-button::after {
   content: '';
   position: absolute;
   inset: 1px;
   border-radius: calc(var(--radius-full) - 1px);
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   z-index: -1;
   pointer-events: none;
   transition: background-color var(--transition-fast);
@@ -74,14 +67,9 @@
 
 .rainbow-button:hover {
   transform: translateY(-2px);
-  color: var(--text-primary);
+  color: var(--deep-lavender, #7B43A5);
 }
 
 .rainbow-button:hover::after {
-  background-color: var(--bg-surface);
-}
-
-.rainbow-button-sm {
-  padding: 0.55rem 1.25rem;
-  font-size: 0.85rem;
+  background-color: var(--bg-surface, #F3EDF9);
 }

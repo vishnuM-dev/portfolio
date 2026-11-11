@@ -121,6 +121,7 @@ export default function Navbar() {
           aria-label="Vishnu Reddy - Home"
         >
           <span className="brand-name">Vishnu Reddy</span>
+          <span className="brand-dot" aria-hidden="true" />
         </Link>
 
         {/* Desktop Navigation Links */}

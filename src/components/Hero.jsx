@@ -1,158 +1,173 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { ArrowDown, Send, Code, Terminal, Sparkles } from 'lucide-react';
-import { GithubIcon, LinkedinIcon, NaukriIcon } from './BrandIcons';
-import BorderBeam from './BorderBeam';
-import RainbowButton from './RainbowButton';
+import React from 'react';
+import { ArrowDown, ArrowUpRight, FileText, Sparkles } from 'lucide-react';
+import { GithubIcon, LinkedinIcon } from './BrandIcons';
 import DownloadResumeButton from './DownloadResumeButton';
-import TextAnimate from './TextAnimate';
 import './Hero.css';
 
-const rolePhrases = [
-  "Associate Software Engineer | Java Full Stack Developer",
-  "Spring Boot & REST API Specialist",
-  "React.js Full Stack Engineer",
-  "Building Enterprise SaaS Applications"
-];
-
 export default function Hero() {
-  const [selectedRole, setSelectedRole] = useState(rolePhrases[0]);
-
-  // Pick one role randomly on page load — stays fixed for the entire session
-  useEffect(() => {
-    const random = rolePhrases[Math.floor(Math.random() * rolePhrases.length)];
-    setSelectedRole(random);
-  }, []);
-
   return (
-    <section id="home" className="hero-section bg-grid-pattern">
-      {/* Background Ambient Glow */}
-      <div className="hero-glow" />
+    <section id="home" className="hero-section">
+      {/* Decorative Soft Lavender Shapes */}
+      <div className="hero-ambient-shape hero-ambient-shape-1" aria-hidden="true" />
+      <div className="hero-ambient-shape hero-ambient-shape-2" aria-hidden="true" />
 
       <div className="container hero-container">
-        <div className="hero-content">
-          {/* Status Badge */}
+        {/* ── Left Column: Developer Headline & Intro ── */}
+        <div className="hero-left-col">
+          {/* Small Java Full Stack Developer Badge */}
           <div className="hero-badge reveal-on-scroll">
-            <span className="pulse-indicator" />
-            <Sparkles size={14} className="sparkle-icon" />
-            <span>Available for Opportunities</span>
+            <span className="hero-badge-dot" />
+            <Sparkles size={13} className="hero-badge-sparkle" />
+            <span>Java Full Stack Developer</span>
           </div>
 
-          {/* Main Title */}
-          <h1 className="hero-title reveal-on-scroll">
-            {/* Headline: each word slides up on its own line, staggered */}
-            <span className="hero-headline">
-              <TextAnimate delay={0} stagger={0.12}>
-                BUILDING SCALABLE SOLUTIONS.
-              </TextAnimate>
-            </span>
-            {/* Role: starts after headline words finish */}
-            <span className="hero-role" key={selectedRole}>
-              <TextAnimate delay={0.5} stagger={0.07}>
-                {selectedRole}
-              </TextAnimate>
+          {/* Large Bold Developer Name */}
+          <h1 className="hero-heading reveal-on-scroll">
+            <span className="hero-name-charcoal">M. Vishnu Vardhan</span>{' '}
+            <span className="hero-name-lavender-wrap">
+              <span className="hero-name-lavender">Reddy</span>
+              <svg
+                className="hero-underline-svg"
+                viewBox="0 0 170 14"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M3 10.5C45 3.5 125 3.5 167 10.5"
+                  stroke="#9870C2"
+                  strokeWidth="3.5"
+                  strokeLinecap="round"
+                />
+              </svg>
             </span>
           </h1>
 
-          {/* Intro Description */}
-          <p className="hero-intro reveal-on-scroll">
-            Java Full Stack Developer with 1 Year 5 Months of experience building secure, scalable enterprise web applications using Java, Spring Boot, REST APIs, MySQL, PostgreSQL, and React.js.
+          {/* Professional Introduction */}
+          <p className="hero-intro-text reveal-on-scroll">
+            Associate Software Engineer specializing in building secure, scalable enterprise web
+            applications using Java, Spring Boot, REST APIs, MySQL, PostgreSQL, and React.js.
+            Focused on robust backend architecture, clean code, and production reliability.
           </p>
 
-          {/* Action CTAs */}
-          <div className="hero-actions reveal-on-scroll">
-            <RainbowButton href="#projects">
-              <span>View Projects</span>
-              <ArrowDown size={18} />
-            </RainbowButton>
-
-            <RainbowButton href="#contact">
-              <Send size={18} />
-              <span>Contact Me</span>
-            </RainbowButton>
-
-            <DownloadResumeButton />
+          {/* Availability Indicator */}
+          <div className="hero-availability reveal-on-scroll">
+            <span className="availability-pulse-container" aria-hidden="true">
+              <span className="availability-pulse-ring" />
+              <span className="availability-pulse-dot" />
+            </span>
+            <span className="availability-text">Available for Opportunities</span>
           </div>
 
-          {/* Social Links */}
-          <div className="hero-socials reveal-on-scroll">
-            <span className="socials-label">Connect:</span>
-            <div className="socials-group">
+          {/* CTAs: View Projects & Download Resume */}
+          <div className="hero-cta-row reveal-on-scroll">
+            <a href="#projects" className="btn btn-primary hero-btn-projects">
+              <span>View Projects</span>
+              <ArrowDown size={17} className="btn-arrow-down" />
+            </a>
+
+            <DownloadResumeButton className="hero-btn-resume" />
+          </div>
+        </div>
+
+        {/* ── Right Column: Professional Connection Card ── */}
+        <div className="hero-right-col reveal-on-scroll">
+          <div className="hero-connection-card">
+            {/* Card Header */}
+            <div className="card-profile-header">
+              <div className="card-avatar-wrapper">
+                <img
+                  src="/images/hero-vishnu.png"
+                  alt="M. Vishnu Vardhan Reddy"
+                  className="card-avatar-img"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = '/images/profile-vishnu.png';
+                  }}
+                />
+                <span className="card-avatar-online" title="Online / Active" />
+              </div>
+
+              <div className="card-profile-info">
+                <h2 className="card-profile-name">M. Vishnu Vardhan Reddy</h2>
+                <p className="card-profile-role">Associate Software Engineer</p>
+                <span className="card-profile-location">Andhra Pradesh, India</span>
+              </div>
+            </div>
+
+            {/* Connection Rows */}
+            <div className="card-connections-group">
+              {/* GitHub Row */}
               <a
                 href="https://github.com/vishnu-reddy-dev"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-icon"
+                className="connection-row"
                 aria-label="GitHub Profile"
               >
-                <GithubIcon size={20} />
+                <div className="connection-row-left">
+                  <div className="connection-icon-box github-icon-box">
+                    <GithubIcon size={17} />
+                  </div>
+                  <div className="connection-row-details">
+                    <span className="connection-label">GitHub</span>
+                    <span className="connection-value">vishnu-reddy-dev</span>
+                  </div>
+                </div>
+                <ArrowUpRight size={16} className="connection-arrow" />
               </a>
 
+              {/* LinkedIn Row */}
               <a
                 href="https://www.linkedin.com/in/matamalavishnu/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-icon"
+                className="connection-row"
                 aria-label="LinkedIn Profile"
               >
-                <LinkedinIcon size={20} />
+                <div className="connection-row-left">
+                  <div className="connection-icon-box linkedin-icon-box">
+                    <LinkedinIcon size={17} />
+                  </div>
+                  <div className="connection-row-details">
+                    <span className="connection-label">LinkedIn</span>
+                    <span className="connection-value">matamalavishnu</span>
+                  </div>
+                </div>
+                <ArrowUpRight size={16} className="connection-arrow" />
               </a>
 
+              {/* Resume Row */}
               <a
-                href="https://www.naukri.com/mnjuser/profile"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-icon"
-                aria-label="Naukri Profile"
+                href="/resume.pdf"
+                download="M_Vishnu_Vardhan_Reddy_Resume.pdf"
+                className="connection-row"
+                aria-label="Download Resume PDF"
               >
-                <NaukriIcon size={20} />
+                <div className="connection-row-left">
+                  <div className="connection-icon-box resume-icon-box">
+                    <FileText size={17} />
+                  </div>
+                  <div className="connection-row-details">
+                    <span className="connection-label">Resume</span>
+                    <span className="connection-value">PDF Download</span>
+                  </div>
+                </div>
+                <ArrowUpRight size={16} className="connection-arrow" />
               </a>
             </div>
-          </div>
-        </div>
 
-        {/* Developer Portrait Visual Card */}
-        <div className="hero-visual reveal-on-scroll">
-          <div className="hero-portrait-card">
-            <div className="portrait-image-wrapper">
-              <img
-                src="/images/hero-vishnu.png"
-                alt="M. Vishnu Vardhan Reddy - Java Full Stack Developer"
-                className="hero-portrait-img"
-                onError={(e) => {
-                  e.target.onerror = null;
-                  e.target.src = '/images/hero-vishnu.jpg';
-                }}
-              />
-              <div className="portrait-gradient-overlay" />
-              
-              {/* Dual Offset Border Beam Animation */}
-              <BorderBeam
-                duration={6}
-                borderWidth={2.5}
-                colorFrom="#C8A8E9"
-                colorTo="#E3AADD"
-                delay={0}
-              />
-              <BorderBeam
-                duration={6}
-                borderWidth={2.5}
-                colorFrom="#F6BCBA"
-                colorTo="#C3C7F4"
-                delay={3}
-              />
-            </div>
-
-            {/* Floating Tech Accent Badges */}
-            <div className="floating-badge badge-top">
-              <Terminal size={14} className="badge-icon" />
-              <span>Spring Boot &amp; Java</span>
-            </div>
-
-            <div className="floating-badge badge-bottom">
-              <Code size={14} className="badge-icon" />
-              <span>React.js &amp; Frontend</span>
+            {/* Bottom Key Tech Pills */}
+            <div className="card-footer-stack">
+              <span className="stack-label">Core Focus:</span>
+              <div className="stack-pills-list">
+                <span className="stack-pill">Java</span>
+                <span className="stack-pill">Spring Boot</span>
+                <span className="stack-pill">REST APIs</span>
+                <span className="stack-pill">MySQL</span>
+                <span className="stack-pill">React.js</span>
+              </div>
             </div>
           </div>
         </div>

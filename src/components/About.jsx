@@ -1,86 +1,105 @@
+'use client';
+
 import React from 'react';
-import { UserCheck, Cpu, ShieldCheck, Zap } from 'lucide-react';
+import { UserCheck, Server, ShieldCheck, Atom, Database, Sparkles, CheckCircle2 } from 'lucide-react';
 import { getExperienceDuration } from '../utils/experience';
 import './About.css';
 
 export default function About() {
   const duration = getExperienceDuration("2025-04-03");
 
+  const infoCards = [
+    {
+      icon: Server,
+      title: "Backend & RESTful Services",
+      desc: "Architecting high-throughput RESTful APIs, Spring Boot microservices, and Hibernate/JPA persistent layers with clean object-oriented design."
+    },
+    {
+      icon: ShieldCheck,
+      title: "Security & Multi-Tenancy",
+      desc: "Implementing Spring Security, JWT authentication, role-based access control (RBAC), and tenant data isolation for scalable SaaS platforms."
+    },
+    {
+      icon: Atom,
+      title: "Frontend & React.js UI",
+      desc: "Developing responsive, component-driven interfaces using React.js, modern JavaScript (ES6+), hooks, and fluid state management."
+    },
+    {
+      icon: Database,
+      title: "Databases & Performance",
+      desc: "Designing normalized schemas, complex relational queries, and performance tuning across MySQL and PostgreSQL environments."
+    }
+  ];
+
   return (
     <section id="about" className="section about-section">
       <div className="container">
-        {/* Section Header */}
-        <div className="about-header reveal-on-scroll">
-          <div className="section-tag">
-            <UserCheck size={16} />
-            <span>01 / About Me</span>
-          </div>
-          <h2 className="section-title">Professional Summary.</h2>
-        </div>
+        <div className="about-editorial-grid">
+          {/* ── Left Column: Editorial Summary & Background ── */}
+          <div className="about-editorial-left reveal-on-scroll">
+            <div className="section-tag">
+              <UserCheck size={15} />
+              <span>01 / About Me</span>
+            </div>
 
-        {/* Full-width Bio & Core Focus Content */}
-        <div className="about-content-wrapper reveal-on-scroll">
-          <div className="about-content-column">
-            <h3 className="about-subtitle">
-              Java Full Stack Developer with {duration.full} of Professional Experience.
-            </h3>
+            <h2 className="about-headline">
+              Architecting Scalable <br />
+              <span className="about-headline-accent">Enterprise Systems.</span>
+            </h2>
 
-            <p className="about-paragraph">
-              Java Full Stack Developer with {duration.full} of experience designing, building, and maintaining enterprise-grade web applications using Java, Spring Boot, Spring MVC, Spring Data JPA, and Hibernate. Skilled in building secure, scalable REST APIs with Spring Security and JWT Authentication, backed by MySQL and PostgreSQL, with growing expertise in React.js for modern frontend development.
-            </p>
+            <div className="about-text-blocks">
+              <p className="about-lead">
+                Java Full Stack Developer with <strong>{duration.full}</strong> of professional
+                experience designing, building, and deploying enterprise-grade web applications.
+              </p>
 
-            <p className="about-paragraph">
-              Experienced in Agile/Scrum teams, using Git, GitHub, and Maven for version control and build automation. Strong foundation in clean architecture and object-oriented design, with a track record of improving application performance and delivering production-ready features on schedule.
-            </p>
+              <p className="about-body">
+                Specialized in Core Java, Spring Boot, Spring MVC, Spring Data JPA, and Hibernate,
+                engineering high-throughput REST APIs and multi-tenant SaaS architectures.
+                Experienced with relational database design and query optimization across MySQL and
+                PostgreSQL, coupled with modern React.js frontend development.
+              </p>
 
-            {/* Core Pillars Grid */}
-            <div className="stats-grid">
-              <div className="stat-card">
-                <span className="stat-number">{duration.short}</span>
-                <span className="stat-label">Industry Experience</span>
+              <p className="about-body">
+                Dedicated to clean object-oriented architecture, strict security protocols
+                (Spring Security, JWT), testable components, and reliable production releases in
+                collaborative Agile environments.
+              </p>
+            </div>
+
+            {/* Highlights Pills */}
+            <div className="about-highlights-row">
+              <div className="about-highlight-pill">
+                <CheckCircle2 size={15} className="highlight-check-icon" />
+                <span>{duration.short} Professional Experience</span>
               </div>
-              <div className="stat-card">
-                <span className="stat-number">Full Stack</span>
-                <span className="stat-label">Java &amp; React Ecosystem</span>
+              <div className="about-highlight-pill">
+                <CheckCircle2 size={15} className="highlight-check-icon" />
+                <span>Enterprise SaaS Architecture</span>
               </div>
-              <div className="stat-card">
-                <span className="stat-number">Agile</span>
-                <span className="stat-label">Production Delivery</span>
+              <div className="about-highlight-pill">
+                <CheckCircle2 size={15} className="highlight-check-icon" />
+                <span>Agile &amp; Production Delivery</span>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* 3 Key Engineering Highlights */}
-        <div className="feature-cards-grid">
-          <div className="feature-card reveal-on-scroll">
-            <div className="feature-icon">
-              <Cpu size={24} />
+          {/* ── Right Column: Information Cards ── */}
+          <div className="about-editorial-right reveal-on-scroll">
+            <div className="about-cards-grid">
+              {infoCards.map((card, idx) => {
+                const IconComp = card.icon;
+                return (
+                  <div key={idx} className="about-info-card">
+                    <div className="about-card-icon-box">
+                      <IconComp size={22} />
+                    </div>
+                    <h3 className="about-card-title">{card.title}</h3>
+                    <p className="about-card-desc">{card.desc}</p>
+                  </div>
+                );
+              })}
             </div>
-            <h4 className="feature-title">Backend &amp; REST APIs</h4>
-            <p className="feature-desc">
-              Designing robust RESTful APIs, object-relational mapping (Hibernate/JPA), and scalable business logic in Spring Boot.
-            </p>
-          </div>
-
-          <div className="feature-card reveal-on-scroll">
-            <div className="feature-icon">
-              <ShieldCheck size={24} />
-            </div>
-            <h4 className="feature-title">Security &amp; Architecture</h4>
-            <p className="feature-desc">
-              Implementing Spring Security, JWT authentication, multi-tenant isolation, role-based access control, and clean object-oriented architecture.
-            </p>
-          </div>
-
-          <div className="feature-card reveal-on-scroll">
-            <div className="feature-icon">
-              <Zap size={24} />
-            </div>
-            <h4 className="feature-title">Frontend &amp; Performance</h4>
-            <p className="feature-desc">
-              Building responsive frontend interfaces with React.js while optimizing MySQL database queries and API response times.
-            </p>
           </div>
         </div>
       </div>

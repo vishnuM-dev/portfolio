@@ -1,741 +1,291 @@
 /* ==========================================================================
-   SKILLS SECTION — Exact Reference Design with Premium Slow-Motion Animations
+   TECHNICAL SKILLS & ECOSYSTEM — COMPACT PREMIUM SHOWCASE
+   Lavender & Pearl White Theme
    ========================================================================== */
 
 .skills-section {
   position: relative;
-  border-top: none;
   background: transparent;
-  overflow: hidden;
-  padding: clamp(3.5rem, 5vw, 5rem) 0;
+  scroll-margin-top: 85px;
 }
 
-.skills-container {
-  position: relative;
-  z-index: 2;
+.skills-header {
+  margin-bottom: 1.5rem;
 }
 
-/* ── Top-Left Decorative Subtle Lavender Wave (Hidden for Seamless Flow) ── */
-.skills-bg-decorative-waves {
-  display: none;
+.skills-title-accent {
+  color: var(--primary-lavender, #9870C2);
 }
 
-/* ── 7. Subtle Ambient Animated Radial Background Gradients (15–25s) ── */
-.skills-bg-glow-1,
-.skills-bg-glow-2 {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(95px);
-  pointer-events: none;
-  z-index: 0;
-  will-change: transform, opacity;
-}
-
-.skills-bg-glow-1 {
-  width: 520px;
-  height: 520px;
-  top: -100px;
-  right: -80px;
-  background: radial-gradient(
-    circle,
-    rgba(200, 168, 233, 0.20) 0%,
-    rgba(227, 170, 221, 0.11) 45%,
-    rgba(244, 231, 251, 0) 75%
-  );
-  animation: ambientFloatOne 22s ease-in-out infinite alternate;
-}
-
-.skills-bg-glow-2 {
-  width: 560px;
-  height: 560px;
-  bottom: -120px;
-  left: -100px;
-  background: radial-gradient(
-    circle,
-    rgba(195, 199, 244, 0.18) 0%,
-    rgba(246, 188, 186, 0.09) 45%,
-    rgba(247, 243, 252, 0) 75%
-  );
-  animation: ambientFloatTwo 26s ease-in-out infinite alternate;
-}
-
-@keyframes ambientFloatOne {
-  0% {
-    transform: translate(0, 0) scale(1);
-    opacity: 0.7;
-  }
-  50% {
-    transform: translate(-35px, 25px) scale(1.08);
-    opacity: 0.95;
-  }
-  100% {
-    transform: translate(25px, -20px) scale(0.96);
-    opacity: 0.75;
-  }
-}
-
-@keyframes ambientFloatTwo {
-  0% {
-    transform: translate(0, 0) scale(1);
-    opacity: 0.65;
-  }
-  50% {
-    transform: translate(40px, -30px) scale(1.06);
-    opacity: 0.9;
-  }
-  100% {
-    transform: translate(-25px, 20px) scale(0.95);
-    opacity: 0.7;
-  }
-}
-
-/* ── 1. Section Header Row: Title on Left, Developer Illustration on Right ── */
-.skills-header-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2.5rem;
-  margin-bottom: 3.25rem;
-}
-
-.skills-header-content {
-  flex: 1;
-  max-width: 630px;
-}
-
-/* Tag Pill: "My Technical Expertise" */
-.skills-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  padding: 0.38rem 0.95rem;
-  background: var(--bg-surface, #F1E9F7);
-  border: 1px solid var(--border-subtle, #E6DCEC);
-  border-radius: var(--radius-full);
-  font-size: 0.83rem;
-  font-weight: 600;
-  color: var(--accent-primary);
-  margin-bottom: 0.95rem;
-  box-shadow: 0 2px 8px rgba(136, 70, 159, 0.08);
-  opacity: 0;
-  transform: translateY(18px);
-  transition:
-    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
-}
-
-.skills-tag.is-revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.tag-sparkle-icon {
-  color: var(--accent-primary);
-  flex-shrink: 0;
-}
-
-/* Heading: "Technical Skills & Tools" */
-.skills-heading {
-  font-size: clamp(2.15rem, 3.8vw, 2.9rem);
-  font-weight: 800;
-  color: var(--text-primary);
-  letter-spacing: -0.025em;
-  line-height: 1.18;
-  margin: 0;
-  opacity: 0;
-  transform: translateY(18px);
-  transition:
-    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.08s,
-    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.08s;
-  will-change: opacity, transform;
-}
-
-.skills-heading.is-revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Subtle Purple Gradient Shimmer on "Skills & Tools" */
-.shimmer-text {
-  display: inline-block;
-  background: linear-gradient(
-    110deg,
-    #88469F 0%,
-    #B27BC3 25%,
-    #F1E9F7 50%,
-    #B27BC3 75%,
-    #88469F 100%
-  );
-  background-size: 220% 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: purpleGradientShimmer 5.5s ease-in-out infinite;
-}
-
-@keyframes purpleGradientShimmer {
-  0% {
-    background-position: 100% 0%;
-  }
-  50% {
-    background-position: 0% 0%;
-  }
-  100% {
-    background-position: 100% 0%;
-  }
-}
-
-/* Description Text */
-.skills-description {
-  font-size: 0.98rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin-top: 0.85rem;
-  margin-bottom: 0;
-  max-width: 590px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition:
-    opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.24s,
-    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.24s;
-  will-change: opacity, transform;
-}
-
-.skills-description.is-revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ── 2. Developer Illustration Styles & Animations ── */
-.skills-illustration-wrapper {
-  flex-shrink: 0;
-  width: 100%;
-  max-width: 440px;
-  opacity: 0;
-  transform: translateY(22px) scale(0.97);
-  transition:
-    opacity 1.25s cubic-bezier(0.16, 1, 0.3, 1) 0.18s,
-    transform 1.25s cubic-bezier(0.16, 1, 0.3, 1) 0.18s;
-  will-change: opacity, transform;
-}
-
-.skills-illustration-wrapper.is-revealed {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-.developer-illustration-container {
-  position: relative;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem;
-  user-select: none;
-}
-
-/* Subtle Purple Ambient Glow Aura Behind Laptop */
-.illustration-ambient-aura {
-  position: absolute;
-  width: 290px;
-  height: 190px;
-  top: 48%;
-  left: 52%;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(178, 123, 195, 0.28) 0%,
-    rgba(136, 70, 159, 0.16) 40%,
-    rgba(200, 168, 233, 0.06) 65%,
-    transparent 78%
-  );
-  filter: blur(30px);
-  pointer-events: none;
-  animation: ambientGlowPulse 7s ease-in-out infinite alternate;
-}
-
-@keyframes ambientGlowPulse {
-  0% {
-    opacity: 0.55;
-    transform: translate(-50%, -50%) scale(0.96);
-  }
-  50% {
-    opacity: 0.88;
-    transform: translate(-50%, -50%) scale(1.06);
-  }
-  100% {
-    opacity: 0.55;
-    transform: translate(-50%, -50%) scale(0.96);
-  }
-}
-
-.illustration-tilt-wrapper {
-  position: relative;
-  width: 100%;
-  transform-style: preserve-3d;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
-}
-
-.illustration-svg {
-  width: 100%;
-  height: auto;
-  display: block;
-  overflow: visible;
-}
-
-/* Continuous Gentle Slow Float Animations */
-.laptop-float-group {
-  animation: laptopGentleFloat 7s ease-in-out infinite;
-  transform-origin: center center;
-  will-change: transform;
-}
-
-@keyframes laptopGentleFloat {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-7px);
-  }
-}
-
-.float-icon-gear {
-  animation: gearFloatSlow 6.2s ease-in-out infinite;
-  transform-origin: 90px 95px;
-  will-change: transform;
-}
-
-@keyframes gearFloatSlow {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-9px) rotate(6deg);
-  }
-}
-
-.float-icon-code {
-  animation: codeBadgeFloatSlow 5.4s ease-in-out infinite;
-  transform-origin: 228px 41px;
-  will-change: transform;
-}
-
-@keyframes codeBadgeFloatSlow {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.float-icon-cloud {
-  animation: cloudBadgeFloatSlow 6.8s ease-in-out infinite;
-  transform-origin: 398px 78px;
-  will-change: transform;
-}
-
-@keyframes cloudBadgeFloatSlow {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-}
-
-.float-icon-window {
-  animation: windowCardFloatSlow 5.8s ease-in-out infinite;
-  transform-origin: 389px 226px;
-  will-change: transform;
-}
-
-@keyframes windowCardFloatSlow {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-9px);
-  }
-}
-
-/* ── 2. Skills Cards Layout (8 Cards in 4 Columns x 2 Rows) ── */
-.skills-categories-grid {
+/* ── 3-Column Responsive Grid with Content-Based Natural Heights ── */
+.skills-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.25rem;
-  position: relative;
-  z-index: 2;
-  align-items: stretch;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px 20px;
+  align-items: start; /* Ensures cards hug their content with natural heights */
 }
 
-/* ── Category Card Base & Entrance Animation ── */
-.skill-category-card {
-  background: #ffffff;
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  padding: 1.35rem 1.4rem;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  min-height: 295px;
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-  opacity: 0;
-  transform: translateY(20px) scale(0.97);
-  transition:
-    opacity 0.95s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.95s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-    background-color 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform, box-shadow;
-  box-shadow: 0 4px 20px rgba(136, 70, 159, 0.05);
-}
-
-.skill-category-card.is-revealed {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-/* Subtle Lavender Corner Decoration from Reference Design */
-.card-corner-accent {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 105px;
-  height: 105px;
-  background: radial-gradient(
-    circle at top right,
-    rgba(200, 168, 233, 0.22) 0%,
-    rgba(227, 170, 221, 0.09) 45%,
-    transparent 74%
-  );
-  border-top-right-radius: inherit;
-  pointer-events: none;
-  z-index: 1;
-  transition: opacity 0.6s ease;
-}
-
-/* ── 3 & 4. Premium Card Desktop Hover Effects ── */
-.skill-category-card.is-revealed:hover {
-  transform: translateY(-7px) scale(1);
-  border-color: rgba(136, 70, 159, 0.55);
+/* ── Compact Category Card ── */
+.skills-compact-card {
+  background: var(--bg-card, #FFFFFF);
+  border: 1px solid var(--subtle-borders, #E8DDF1);
+  border-radius: 20px;
+  padding: 1.25rem 1.35rem;
   box-shadow:
-    0 16px 38px rgba(136, 70, 159, 0.14),
-    0 4px 16px rgba(200, 168, 233, 0.16),
-    0 0 0 1px rgba(136, 70, 159, 0.18);
+    0 4px 18px rgba(152, 112, 194, 0.05),
+    0 1px 3px rgba(33, 27, 43, 0.02);
   transition:
-    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  transition-delay: 0s !important;
-}
-
-.skill-category-card:hover .card-corner-accent {
-  opacity: 0.9;
-}
-
-/* Soft Highlight Shine Travelling Across Card Surface on Hover */
-.card-shine {
-  position: absolute;
-  top: 0;
-  left: -140%;
-  width: 90%;
-  height: 100%;
-  background: linear-gradient(
-    115deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0) 25%,
-    rgba(255, 255, 255, 0.65) 50%,
-    rgba(200, 168, 233, 0.28) 65%,
-    transparent 100%
-  );
-  transform: skewX(-20deg);
-  transition: left 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-  pointer-events: none;
-  z-index: 5;
-}
-
-.skill-category-card:hover .card-shine {
-  left: 140%;
-}
-
-/* Interactive Mouse Pointer-Follow Radial Gradient */
-.gradient {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.45s ease;
-  background: radial-gradient(
-    180px circle at var(--pointer-x, 50%) var(--pointer-y, 50%),
-    rgba(200, 168, 233, 0.22) 0%,
-    transparent 70%
-  );
-  z-index: 1;
-  border-radius: inherit;
-}
-
-.skill-chip .gradient {
-  background: radial-gradient(
-    90px circle at var(--pointer-x, 50%) var(--pointer-y, 50%),
-    rgba(227, 170, 221, 0.35) 0%,
-    transparent 80%
-  );
-}
-
-.skill-category-card:hover > .gradient,
-.skill-chip:hover > .gradient {
-  opacity: 1;
-}
-
-/* ── 6. Category Header & Category Icon Animation ── */
-.category-header {
+    transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 220ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 220ms cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
-  z-index: 2;
-  margin-bottom: 0.85rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 1px solid var(--border-subtle);
-  min-height: 5.1rem;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
 }
 
-.category-header-top {
+/* Card Hover: Upward 3–4px, strengthened border, softer shadow */
+.skills-compact-card:hover {
+  transform: translateY(-3.5px);
+  border-color: var(--primary-lavender, #9870C2);
+  box-shadow:
+    0 12px 30px rgba(152, 112, 194, 0.11),
+    0 2px 6px rgba(152, 112, 194, 0.04);
+}
+
+/* ── Clean Category Header ── */
+.card-header-row {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  margin-bottom: 0.45rem;
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.85rem;
+  border-bottom: 1px solid #F3EDF9;
 }
 
-/* Gradient Category Icon Box */
-.category-icon-box {
+.card-icon-square {
   width: 36px;
   height: 36px;
   border-radius: 10px;
-  background: linear-gradient(135deg, #B27BC3 0%, #88469F 100%);
+  background: var(--bg-surface, #F3EDF9);
+  color: var(--deep-lavender, #7B43A5);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #FFFFFF;
-  box-shadow: 0 4px 12px rgba(136, 70, 159, 0.25);
-  transition:
-    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform, box-shadow;
   flex-shrink: 0;
+  transition: background 180ms ease, color 180ms ease;
 }
 
-.skill-category-card:hover .category-icon-box {
-  transform: translateY(-2.5px) rotate(-3.5deg) scale(1.04);
-  box-shadow: 0 6px 18px rgba(136, 70, 159, 0.4);
+.skills-compact-card:hover .card-icon-square {
+  background: var(--primary-lavender, #9870C2);
+  color: #FFFFFF;
 }
 
-.category-title {
-  font-size: 1.15rem;
+.card-title-wrap {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.card-title-text {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
   font-weight: 700;
-  color: var(--text-primary);
-  margin: 0;
-  line-height: 1.2;
+  color: var(--primary-headings, #211B2B);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
 }
 
-.category-desc {
-  font-size: 0.81rem;
-  color: var(--text-muted);
-  line-height: 1.48;
-  margin: 0;
-  min-height: 2.8rem;
+.card-subtitle-text {
+  font-family: var(--font-body);
+  font-size: 0.775rem;
+  color: var(--body-text, #665E70);
+  line-height: 1.35;
+  margin-top: 0.1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* ── 5. Technology Badges (Chips) & Animations ── */
-.skills-chips-grid {
-  position: relative;
-  z-index: 2;
+/* ── Compact Interactive Skill Chips (Horizontal Wrap) ── */
+.card-chips-wrap {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  align-content: flex-start;
-  flex-grow: 1;
+  align-items: center;
 }
 
 .skill-chip {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 0.48rem;
-  padding: 0.42rem 0.78rem;
-  background: var(--bg-surface, #F1E9F7);
-  border: 1px solid var(--border-subtle, #E6DCEC);
-  border-radius: 10px;
-  position: relative;
-  overflow: hidden;
-  transition:
-    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
-    background-color 0.55s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.55s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.55s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform, box-shadow;
-}
-
-/* Staggered badge fade-in on card entrance */
-.skill-category-card.is-revealed .skill-chip {
-  animation: chipFadeUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) backwards;
-}
-
-@keyframes chipFadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Technology Badge Hover State */
-.skill-chip:hover {
-  transform: translateY(-2px) scale(1.04);
-  background: #FFFFFF;
-  border-color: var(--accent-secondary, #B27BC3);
-  box-shadow:
-    0 4px 14px rgba(136, 70, 159, 0.16),
-    0 1px 4px rgba(200, 168, 233, 0.2);
-}
-
-.skill-chip-icon {
-  position: relative;
-  z-index: 2;
-  color: var(--accent-primary);
-  flex-shrink: 0;
-  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
-}
-
-.skill-chip:hover .skill-chip-icon {
-  transform: translateY(-1.5px);
-}
-
-.skill-chip-name {
-  position: relative;
-  z-index: 2;
-  font-family: var(--font-sans);
-  font-size: 0.78rem;
+  gap: 0.45rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-main, #FCFBFF);
+  border: 1px solid var(--subtle-borders, #E8DDF1);
+  color: var(--primary-headings, #211B2B);
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
   font-weight: 500;
-  color: var(--text-primary, #241B30);
-  line-height: 1.25;
+  letter-spacing: -0.005em;
+  line-height: 1.2;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    transform 180ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease;
+  outline: none;
 }
 
-/* ── 8. Mobile & Tablet Responsive Adaptations ── */
-@media (max-width: 1200px) {
-  .skills-categories-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.1rem;
-  }
+/* Skill Chip Hover: Upward 1-2px, richer lavender tint, lavender border */
+.skill-chip:hover,
+.skill-chip:focus-visible {
+  transform: translateY(-1.5px);
+  background: var(--lavender-highlight, #E9D9F7);
+  border-color: var(--primary-lavender, #9870C2);
+  color: var(--deep-lavender, #7B43A5);
+  box-shadow: 0 3px 10px rgba(152, 112, 194, 0.12);
 }
 
-@media (max-width: 1060px) {
-  .skills-categories-grid {
+.chip-tech-icon {
+  color: var(--primary-lavender, #9870C2);
+  flex-shrink: 0;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.skill-chip:hover .chip-tech-icon,
+.skill-chip:focus-visible .chip-tech-icon {
+  color: var(--deep-lavender, #7B43A5);
+  transform: scale(1.08);
+}
+
+.chip-name {
+  white-space: nowrap;
+}
+
+.chip-info-indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--deep-lavender, #7B43A5);
+  opacity: 0.75;
+  margin-left: -0.1rem;
+}
+
+.skill-chip:hover .chip-info-indicator {
+  opacity: 1;
+}
+
+/* ── Rich Tooltip for Detailed Topics (e.g. Core Java) ── */
+.chip-floating-tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: var(--primary-headings, #211B2B);
+  color: #FFFFFF;
+  padding: 0.45rem 0.75rem;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.725rem;
+  line-height: 1.4;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: 0 6px 20px rgba(33, 27, 43, 0.22);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  transition:
+    opacity 160ms ease,
+    transform 160ms cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 160ms;
+}
+
+.chip-floating-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--primary-headings, #211B2B) transparent transparent transparent;
+}
+
+.tooltip-title {
+  font-weight: 700;
+  color: var(--lavender-highlight, #E9D9F7);
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.tooltip-desc {
+  font-weight: 400;
+  color: #FFFFFF;
+}
+
+/* Reveal Tooltip on Hover or Keyboard Focus */
+.skill-chip.has-tooltip:hover .chip-floating-tooltip,
+.skill-chip.has-tooltip:focus-visible .chip-floating-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ── Responsive Layouts ── */
+@media (max-width: 1024px) {
+  .skills-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 18px 20px;
   }
 }
 
-@media (max-width: 880px) {
-  .skills-section {
-    padding: 4.5rem 0;
-  }
-
-  .skills-header-row {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 2rem;
-    margin-bottom: 2.75rem;
-  }
-
-  .skills-header-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .skills-illustration-wrapper {
-    max-width: 380px;
-  }
-}
-
-@media (max-width: 600px) {
-  .skills-section {
-    padding: 3.5rem 0;
-  }
-
-  .skills-categories-grid {
+@media (max-width: 640px) {
+  .skills-grid {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 16px;
   }
 
-  .skill-category-card {
-    padding: 1.15rem;
-    min-height: auto;
+  .skills-compact-card {
+    padding: 1.15rem 1.15rem;
   }
 
-  .category-header {
-    min-height: auto;
-    margin-bottom: 0.75rem;
-    padding-bottom: 0.65rem;
+  .card-subtitle-text {
+    white-space: normal;
   }
 
-  .category-desc {
-    min-height: auto;
-  }
-
-  /* Reduced lift on mobile touch screens to avoid visual jumps */
-  .skill-category-card.is-revealed:hover {
-    transform: translateY(-3px) scale(1);
-  }
-
-  .skill-chip {
-    padding: 0.35rem 0.65rem;
-  }
-
-  .skills-illustration-wrapper {
-    max-width: 320px;
+  .chip-floating-tooltip {
+    white-space: normal;
+    width: max-content;
+    max-width: 260px;
+    text-align: center;
   }
 }
 
-/* ── 9. Prefers-Reduced-Motion Accessibility ── */
+/* ── Respect Prefers-Reduced-Motion ── */
 @media (prefers-reduced-motion: reduce) {
-  .skills-tag,
-  .skills-heading,
-  .skills-description,
-  .skills-illustration-wrapper,
-  .skill-category-card,
+  .skills-compact-card,
   .skill-chip,
-  .skill-chip-icon,
-  .category-icon-box,
-  .card-shine,
-  .shimmer-text,
-  .illustration-ambient-aura,
-  .laptop-float-group,
-  .float-icon-gear,
-  .float-icon-code,
-  .float-icon-cloud,
-  .float-icon-window,
-  .skills-bg-glow-1,
-  .skills-bg-glow-2 {
-    animation: none !important;
+  .chip-tech-icon,
+  .chip-floating-tooltip {
     transition: none !important;
     transform: none !important;
-    opacity: 1 !important;
   }
 
-  .illustration-tilt-wrapper {
+  .skills-compact-card:hover {
+    transform: none !important;
+  }
+
+  .skill-chip:hover {
     transform: none !important;
   }
 }

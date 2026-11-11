@@ -1,566 +1,234 @@
 /* ==========================================================================
-   PROJECT CARD — Clean & Minimal Layout (Image-Focused, Compact)
+   PROJECT CARD COMPONENT — LAVENDER & PEARL WHITE THEME
    ========================================================================== */
 
-.project-card-container {
-  opacity: 0;
-  transform: translateY(20px) scale(0.97);
-  transition:
-    opacity 0.95s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.95s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.project-card-container.is-revealed {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-/* ── Card Main Inner Container ── */
-.project-card-inner {
-  display: flex;
-  flex-direction: column;
-  background: #ffffff;
-  border: 1px solid var(--border-subtle);
-  border-radius: 22px;
-  padding: 1.35rem;
-  width: 100%;
-  height: 100%;
-  position: relative;
+.project-card {
+  background: var(--bg-card, #FFFFFF);
+  border: 1.5px solid var(--subtle-borders, #E8DDF1);
+  border-radius: var(--radius-xl, 24px);
   overflow: hidden;
-  isolation: isolate;
-  box-shadow: 0 4px 20px rgba(136, 70, 159, 0.05);
-  box-sizing: border-box;
-  transition:
-    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Desktop Hover Lift & Purple Glow */
-.project-card-container.is-revealed:hover .project-card-inner {
-  transform: translateY(-5px);
-  border-color: rgba(136, 70, 159, 0.55);
+  display: flex;
+  flex-direction: column;
   box-shadow:
-    0 18px 40px rgba(136, 70, 159, 0.12),
-    0 4px 16px rgba(200, 168, 233, 0.16),
-    0 0 0 1px rgba(136, 70, 159, 0.16);
-  transition-delay: 0s !important;
+    0 8px 30px rgba(152, 112, 194, 0.06),
+    0 2px 8px rgba(152, 112, 194, 0.02);
+  transition:
+    transform var(--transition-normal),
+    border-color var(--transition-normal),
+    box-shadow var(--transition-normal);
 }
 
-/* Diagonal Shine Sweep across Card Surface */
-.project-card-shine {
-  position: absolute;
-  top: 0;
-  left: -140%;
-  width: 90%;
-  height: 100%;
-  background: linear-gradient(
-    115deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0) 25%,
-    rgba(255, 255, 255, 0.65) 50%,
-    rgba(200, 168, 233, 0.28) 65%,
-    transparent 100%
-  );
-  transform: skewX(-20deg);
-  transition: left 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-  pointer-events: none;
-  z-index: 5;
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--primary-lavender, #9870C2);
+  box-shadow:
+    0 18px 46px rgba(152, 112, 194, 0.13),
+    0 4px 14px rgba(152, 112, 194, 0.05);
 }
 
-.project-card-inner:hover .project-card-shine {
-  left: 140%;
-}
-
-/* ── 1. Card Top Bar: Project Number & Bookmark Control ── */
-.project-card-top-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 0.85rem;
-  position: relative;
-  z-index: 2;
-}
-
-.project-number-badge {
-  font-family: var(--font-heading);
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--accent-primary);
-  background: var(--bg-surface, #F1E9F7);
-  border: 1px solid var(--border-subtle, #E6DCEC);
-  border-radius: var(--radius-full);
-  padding: 0.22rem 0.7rem;
-  line-height: 1.2;
-}
-
-.project-bookmark-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: none;
-  border: none;
-  padding: 4px;
-  cursor: pointer;
-  border-radius: var(--radius-full);
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.project-bookmark-btn:hover {
-  transform: scale(1.12);
-  background-color: rgba(136, 70, 159, 0.08);
-}
-
-.project-bookmark-icon {
-  color: var(--accent-secondary, #B27BC3);
-  transition: transform 0.4s ease, color 0.4s ease, fill 0.4s ease;
-}
-
-.project-bookmark-btn:hover .project-bookmark-icon {
-  color: var(--accent-primary, #88469F);
-}
-
-.project-bookmark-btn.is-active .project-bookmark-icon {
-  color: var(--accent-primary, #88469F);
-  fill: var(--accent-primary, #88469F);
-}
-
-/* ── 2. Full-Width Project Image Stage (Aspect ~16:10, Enhanced Prominence) ── */
-.project-image-stage-link {
+/* ── 1. Image Showcase Area ── */
+.project-card-image-wrap {
+  display: block;
   text-decoration: none;
-  display: block;
-  width: 100%;
-}
-
-.project-image-stage {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  min-height: 205px;
-  max-height: 245px;
-  background: linear-gradient(180deg, #F7F3FC 0%, #F1E9F7 100%);
-  border: 1px solid var(--border-subtle, #E6DCEC);
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.85rem 1rem;
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 1.15rem;
-  box-sizing: border-box;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.6s ease;
-}
-
-.project-card-inner:hover .project-image-stage {
-  border-color: rgba(136, 70, 159, 0.4);
-}
-
-/* 3D Laptop Mockup Container inside the stage */
-.project-laptop-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 305px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  perspective: 900px;
-  padding: 0.25rem 0;
-}
-
-/* Ambient Purple Underglow Beneath Laptop Base */
-.laptop-ambient-glow {
-  position: absolute;
-  width: 92%;
-  height: 48%;
-  bottom: -4px;
-  border-radius: 50%;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(178, 123, 195, 0.42) 0%,
-    rgba(136, 70, 159, 0.22) 45%,
-    transparent 76%
-  );
-  filter: blur(14px);
-  pointer-events: none;
-  transition: opacity 0.6s ease, transform 0.6s ease;
-  will-change: transform, opacity;
-}
-
-.project-card-inner:hover .laptop-ambient-glow {
-  opacity: 1;
-  transform: scale(1.15);
-  filter: blur(16px);
-}
-
-/* Stage Decorative Foliage on Left */
-.laptop-stage-decor-left {
-  position: absolute;
-  left: 6px;
-  bottom: 8px;
-  width: 48px;
-  height: 64px;
-  z-index: 1;
-  pointer-events: none;
-  transition: transform 0.6s ease;
-}
-
-.project-card-inner:hover .laptop-stage-decor-left {
-  transform: scale(1.06) translateY(-2px);
-}
-
-/* Stage Decorative Books on Right (Cards 03 & 05) */
-.laptop-stage-decor-right {
-  position: absolute;
-  right: 6px;
-  bottom: 8px;
-  width: 44px;
-  height: 36px;
-  z-index: 3;
-  pointer-events: none;
-  transition: transform 0.6s ease;
-}
-
-.project-card-inner:hover .laptop-stage-decor-right {
-  transform: scale(1.08) translateY(-2px);
-}
-
-.stage-decor-svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-/* 3D Angled Chassis */
-.laptop-chassis-3d {
-  position: relative;
-  width: 100%;
-  transform: rotateY(-18deg) rotateX(10deg) rotateZ(1.5deg);
-  transform-style: preserve-3d;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
-  z-index: 2;
-}
-
-.project-card-inner:hover .laptop-chassis-3d {
-  transform: rotateY(-13deg) rotateX(7deg) rotateZ(1deg) scale(1.03);
-}
-
-/* Laptop Screen Lid */
-.laptop-lid-frame {
-  background: linear-gradient(135deg, #1A0D2D 0%, #2A1444 100%);
-  border: 2px solid #3F1D64;
-  border-radius: 9px;
-  padding: 4px 4px 3px 4px;
-  box-shadow: 0 4px 18px rgba(25, 10, 42, 0.35);
-  position: relative;
-}
-
-.laptop-camera-notch {
-  width: 3.5px;
-  height: 3.5px;
-  background: #683B92;
-  border-radius: 50%;
-  margin: 1px auto 3px auto;
-}
-
-.laptop-screen-viewport {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  border-radius: 5px;
   overflow: hidden;
   position: relative;
-  background: #0E0717;
+  background: var(--bg-surface, #F3EDF9);
 }
 
-.laptop-screen-image {
+.image-aspect-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.project-cover-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
-  display: block;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  object-position: top center;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  background-color: var(--bg-surface, #F3EDF9);
 }
 
-/* Image Zoom Effect on Hover */
-.project-card-inner:hover .laptop-screen-image {
-  transform: scale(1.05);
+.project-card:hover .project-cover-image {
+  transform: scale(1.04);
 }
 
-.laptop-screen-sheen {
+.image-overlay-tint {
   position: absolute;
   inset: 0;
-  background: linear-gradient(125deg, rgba(255, 255, 255, 0.16) 0%, transparent 45%);
+  background: linear-gradient(
+    to bottom,
+    transparent 60%,
+    rgba(33, 27, 43, 0.15) 100%
+  );
   pointer-events: none;
 }
 
-/* Laptop Base Deck */
-.laptop-base-tray {
-  height: 10px;
-  width: 108%;
-  margin-left: -4%;
-  background: linear-gradient(135deg, #FAF5FD 0%, #E3D3F1 100%);
-  border-radius: 2px 2px 6px 6px;
-  border-top: 1px solid #FFFFFF;
-  box-shadow: 0 4px 12px rgba(60, 25, 90, 0.22);
-  position: relative;
-  margin-top: -1px;
-}
-
-.laptop-base-thumb-notch {
-  width: 22px;
-  height: 2.5px;
-  background: #BCA4D6;
-  border-radius: 0 0 2px 2px;
+.project-card-number {
   position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 1rem;
+  left: 1rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--subtle-borders, #E8DDF1);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--deep-lavender, #7B43A5);
+  box-shadow: 0 2px 8px rgba(33, 27, 43, 0.06);
 }
 
-/* ── 3. Details Body: Title, Badges, CTAs ── */
-.project-card-details {
+/* ── 2. Card Content Body ── */
+.project-card-body {
+  padding: 1.6rem 1.65rem;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  position: relative;
-  z-index: 2;
+  flex: 1;
 }
 
-/* Bold Title with Natural Word Boundary Wrapping and Minimum Height for Alignment */
 .project-card-title {
-  font-size: clamp(1.15rem, 1.25vw + 0.2rem, 1.28rem);
-  font-weight: 800;
-  color: var(--text-primary);
-  letter-spacing: -0.015em;
-  line-height: 1.35;
-  margin: 0 0 0.85rem 0;
-  min-height: 3.1rem;
-  display: flex;
-  align-items: flex-start;
-  overflow-wrap: normal;
-  word-break: normal;
-  hyphens: none;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-headings, #211B2B);
+  margin-bottom: 0.65rem;
+  line-height: 1.3;
 }
 
 .project-title-link {
-  color: inherit;
-  text-decoration: none;
-  transition: color 0.3s ease;
+  color: var(--primary-headings, #211B2B);
+  transition: color var(--transition-fast);
 }
 
-.project-card-inner:hover .project-title-link {
-  color: var(--accent-primary);
+.project-card:hover .project-title-link {
+  color: var(--deep-lavender, #7B43A5);
 }
 
-/* ── 4. Horizontal Technology Badges Row (Strict Single Line) ── */
-.project-tech-badges-row {
-  display: flex;
-  flex-wrap: nowrap !important;
-  gap: 0.35rem;
-  align-items: center;
+.project-card-desc {
+  font-size: 0.925rem;
+  line-height: 1.6;
+  color: var(--body-text, #665E70);
   margin-bottom: 1.25rem;
-  min-height: 2rem;
-  width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  -webkit-overflow-scrolling: touch;
+  flex: 1;
 }
 
-.project-tech-badges-row::-webkit-scrollbar {
-  display: none;
+/* Tech Badges */
+.project-tech-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1.35rem;
 }
 
 .project-tech-pill {
   display: inline-flex;
   align-items: center;
-  gap: 0.32rem;
-  padding: 0.28rem 0.55rem;
-  background: var(--bg-surface, #F1E9F7);
-  border: 1px solid var(--border-subtle, #E6DCEC);
+  gap: 0.35rem;
+  padding: 0.28rem 0.65rem;
   border-radius: var(--radius-full);
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
+  background: var(--bg-surface, #F3EDF9);
+  border: 1px solid var(--subtle-borders, #E8DDF1);
+  font-family: var(--font-heading);
+  font-size: 0.775rem;
   font-weight: 500;
-  color: var(--text-primary, #241B30);
-  line-height: 1.2;
-  white-space: nowrap;
-  flex-shrink: 0;
-  transition:
-    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-    background-color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform, box-shadow;
+  color: var(--deep-lavender, #7B43A5);
+  transition: all var(--transition-fast);
 }
 
-.project-tech-pill:hover {
-  transform: translateY(-2px) scale(1.04);
-  background: #FFFFFF;
-  border-color: var(--accent-secondary, #B27BC3);
-  box-shadow: 0 4px 14px rgba(136, 70, 159, 0.16);
-}
-
-.project-pill-icon {
-  color: var(--accent-primary);
+.tech-pill-icon {
+  color: var(--primary-lavender, #9870C2);
   flex-shrink: 0;
 }
 
-.project-pill-overflow {
-  background: var(--bg-surface, #F1E9F7);
-  color: var(--accent-primary);
-  font-weight: 700;
-  border-color: var(--border-subtle, #E6DCEC);
-  padding: 0.28rem 0.46rem;
-  font-size: 0.72rem;
+.project-card:hover .project-tech-pill {
+  border-color: rgba(152, 112, 194, 0.3);
 }
 
-/* ── 5. Bottom Action CTAs (Pinned at bottom) ── */
-.project-card-footer-cta {
+/* ── 3. Bottom Action Buttons ── */
+.project-card-actions {
   display: flex;
   align-items: center;
   gap: 0.65rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid var(--subtle-borders, #E8DDF1);
   margin-top: auto;
-  width: 100%;
+  flex-wrap: wrap;
 }
 
 .project-action-btn {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   gap: 0.45rem;
-  height: 42px;
-  padding: 0 1.15rem;
-  box-sizing: border-box;
+  padding: 0.5rem 1.15rem;
   border-radius: var(--radius-full);
-  font-size: 0.84rem;
+  font-family: var(--font-heading);
+  font-size: 0.825rem;
   font-weight: 600;
   text-decoration: none;
-  line-height: 1.2;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  white-space: nowrap;
+  transition: all var(--transition-fast);
+  cursor: pointer;
 }
 
-/* When only View Details is present (full width prominent primary CTA) */
-.project-card-footer-cta.details-only .project-btn-details {
-  width: 100%;
-  background: linear-gradient(135deg, #88469F 0%, #B27BC3 100%);
-  color: #ffffff !important;
-  border: 1px solid transparent;
-  box-shadow: 0 3px 12px rgba(136, 70, 159, 0.25);
+.btn-details {
+  background: var(--primary-lavender, #9870C2);
+  color: #FFFFFF;
+  margin-left: auto;
+  box-shadow: 0 3px 12px rgba(152, 112, 194, 0.2);
 }
 
-.project-card-footer-cta.details-only .project-btn-details:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(136, 70, 159, 0.38);
+.btn-details:hover {
+  background: var(--deep-lavender, #7B43A5);
+  transform: translateY(-1.5px);
+  box-shadow: 0 6px 18px rgba(123, 67, 165, 0.28);
+  color: #FFFFFF;
 }
 
-/* When both Live Demo and View Details are present (side-by-side) */
-.project-card-footer-cta.has-demo .project-action-btn {
-  flex: 1;
+.btn-demo,
+.btn-github {
+  background: var(--bg-surface, #F3EDF9);
+  border: 1px solid var(--subtle-borders, #E8DDF1);
+  color: var(--deep-lavender, #7B43A5);
 }
 
-.project-card-footer-cta.has-demo .project-btn-demo {
-  background: linear-gradient(135deg, #88469F 0%, #B27BC3 100%);
-  color: #ffffff !important;
-  border: 1px solid transparent;
-  box-shadow: 0 3px 12px rgba(136, 70, 159, 0.25);
+.btn-demo:hover,
+.btn-github:hover {
+  background: var(--lavender-highlight, #E9D9F7);
+  border-color: var(--primary-lavender, #9870C2);
+  transform: translateY(-1.5px);
 }
 
-.project-card-footer-cta.has-demo .project-btn-demo:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(136, 70, 159, 0.38);
+.action-arrow {
+  transition: transform var(--transition-fast);
 }
 
-.project-card-footer-cta.has-demo .project-btn-details {
-  background: #FFFFFF;
-  color: var(--text-primary, #241B30) !important;
-  border: 1px solid var(--border-subtle, #E6DCEC);
-  box-shadow: 0 2px 8px rgba(136, 70, 159, 0.05);
-}
-
-.project-card-footer-cta.has-demo .project-btn-details:hover {
-  transform: translateY(-2px);
-  background: var(--bg-surface, #F1E9F7);
-  border-color: var(--accent-primary, #88469F);
-  color: var(--accent-primary, #88469F) !important;
-  box-shadow: 0 4px 14px rgba(136, 70, 159, 0.15);
-}
-
-.btn-icon-play {
-  flex-shrink: 0;
-}
-
-.btn-icon-github {
-  flex-shrink: 0;
-  color: inherit;
-}
-
-.action-arrow-icon {
-  flex-shrink: 0;
-  transition: transform 0.3s ease;
-}
-
-.project-action-btn:hover .action-arrow-icon {
+.project-action-btn:hover .action-arrow {
   transform: translate(2px, -2px);
 }
 
-/* ── Responsive Adaptations ── */
-@media (max-width: 768px) {
-  .project-card-inner {
-    padding: 1.2rem;
-    border-radius: 20px;
+/* ── Responsive Queries ── */
+@media (max-width: 600px) {
+  .project-card-body {
+    padding: 1.25rem;
   }
 
-  .project-image-stage {
-    min-height: 190px;
-    max-height: 220px;
-  }
-
-  .laptop-chassis-3d {
-    transform: none;
-  }
-
-  .project-card-inner:hover .laptop-chassis-3d {
-    transform: scale(1.03);
-  }
-
-  .laptop-stage-decor-left,
-  .laptop-stage-decor-right {
-    opacity: 0.8;
-  }
-}
-
-@media (max-width: 480px) {
-  .project-card-inner {
-    padding: 1.1rem;
-  }
-
-  .project-card-title {
-    font-size: 1.15rem;
-    min-height: auto;
-  }
-
-  .project-tech-pill {
-    padding: 0.28rem 0.52rem;
-    font-size: 0.7rem;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
-  .project-card-footer-cta.has-demo {
+  .project-card-actions {
     flex-direction: column;
-    gap: 0.5rem;
+    align-items: stretch;
   }
 
-  .project-action-btn {
+  .btn-details {
+    margin-left: 0;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .btn-demo,
+  .btn-github {
+    justify-content: center;
     width: 100%;
   }
 }
