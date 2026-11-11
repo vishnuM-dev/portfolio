@@ -1,6 +1,7 @@
 import '../index.css';
 import '../App.css';
 import { ThemeProvider } from '@/context/ThemeContext';
+import SpiderWebBackground from '@/components/SpiderWebBackground';
 
 export const metadata = {
   metadataBase: new URL('https://github.com/vishnu-reddy-dev'),
@@ -74,6 +75,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <ThemeProvider>
+          <SpiderWebBackground />
           {children}
         </ThemeProvider>
       </body>

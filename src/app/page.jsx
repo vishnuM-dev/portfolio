@@ -37,8 +37,6 @@ export default function Home() {
 
   return (
     <div className="portfolio-app">
-      {/* Global Seamless Background Canvas */}
-      <div className="global-bg-canvas" aria-hidden="true" />
       <Navbar />
       <main id="main-content">
         <Hero />

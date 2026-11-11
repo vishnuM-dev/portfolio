@@ -6,7 +6,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: var(--bg-main, #FCFBFF);
+  background-color: transparent;
   color: var(--primary-headings, #211B2B);
   position: relative;
   overflow-x: hidden;
