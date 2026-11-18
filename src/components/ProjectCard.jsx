@@ -13,7 +13,7 @@ import './ProjectCard.css';
 function JsBadgeIcon({ size = 12, className = "" }) {
   return (
     <svg width={size} height={size} viewBox="0 0 16 16" fill="none" className={className} aria-hidden="true">
-      <rect width="16" height="16" rx="3.5" fill="#9870C2" />
+      <rect width="16" height="16" rx="3.5" fill="#596235" />
       <text x="8" y="11.5" textAnchor="middle" fill="#FFFFFF" fontSize="8.5" fontWeight="800" fontFamily="sans-serif">JS</text>
     </svg>
   );

@@ -193,10 +193,10 @@ export default function SpiderWebBackground() {
             p.x += (dx / dist) * forceRatio * 0.55;
             p.y += (dy / dist) * forceRatio * 0.55;
 
-            // Spider web filament connecting to cursor
+            // Spider web filament connecting to cursor with Coral warmth
             const mouseLineAlpha = forceRatio * 0.55;
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(152, 112, 194, ${mouseLineAlpha.toFixed(3)})`;
+            ctx.strokeStyle = `rgba(217, 104, 70, ${mouseLineAlpha.toFixed(3)})`;
             ctx.lineWidth = lineWidth + 0.25;
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(mouse.x, mouse.y);
@@ -208,11 +208,11 @@ export default function SpiderWebBackground() {
         p.pulse += p.pulseSpeed;
         const currentAlpha = Math.max(0.40, Math.min(0.95, p.baseAlpha + Math.sin(p.pulse) * 0.12));
 
-        // Draw soft glowing particle
+        // Draw soft glowing particle in Soft Lavender Gray
         ctx.beginPath();
-        ctx.fillStyle = `rgba(152, 112, 194, ${currentAlpha.toFixed(3)})`;
+        ctx.fillStyle = `rgba(150, 147, 162, ${currentAlpha.toFixed(3)})`;
         ctx.shadowBlur = 5;
-        ctx.shadowColor = 'rgba(152, 112, 194, 0.45)';
+        ctx.shadowColor = 'rgba(89, 98, 53, 0.35)';
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fill();
       }
@@ -252,7 +252,7 @@ export default function SpiderWebBackground() {
             }
 
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(152, 112, 194, ${lineAlpha.toFixed(3)})`;
+            ctx.strokeStyle = `rgba(165, 162, 178, ${lineAlpha.toFixed(3)})`;
             ctx.lineWidth = lineWidth;
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);

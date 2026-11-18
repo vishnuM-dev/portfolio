@@ -1,5 +1,6 @@
 /* ==========================================================================
-   EDUCATION SECTION — ACADEMIC TIMELINE — LAVENDER & PEARL WHITE THEME
+   EDUCATION SECTION — ACADEMIC TIMELINE — MODERN-CLASSIC THEME
+   (Soft Lavender Gray, Burnt Coral, Olive Green, Deep Forest Charcoal)
    ========================================================================== */
 
 .education-section {
@@ -12,7 +13,7 @@
 }
 
 .edu-title-accent {
-  color: var(--primary-lavender, #9870C2);
+  color: var(--color-coral, #D96846);
 }
 
 /* ── Timeline Container ── */
@@ -23,7 +24,7 @@
   padding-left: 2.25rem;
 }
 
-/* Vertical Track */
+/* Vertical Olive Green Track */
 .education-track-line {
   position: absolute;
   top: 15px;
@@ -32,8 +33,8 @@
   width: 2px;
   background: linear-gradient(
     to bottom,
-    var(--primary-lavender, #9870C2),
-    var(--subtle-borders, #E8DDF1)
+    var(--color-olive, #596235),
+    var(--subtle-borders, #DDDCE4)
   );
   border-radius: 2px;
 }
@@ -61,31 +62,31 @@
   height: 36px;
   border-radius: 50%;
   background: var(--bg-card, #FFFFFF);
-  border: 2px solid var(--primary-lavender, #9870C2);
-  color: var(--deep-lavender, #7B43A5);
+  border: 2px solid var(--color-olive, #596235);
+  color: var(--color-olive, #596235);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 0 4px rgba(152, 112, 194, 0.15);
+  box-shadow: 0 0 0 4px rgba(89, 98, 53, 0.15);
   transition: all var(--transition-fast);
 }
 
 .education-timeline-item:hover .marker-cap-box {
-  background: var(--primary-lavender, #9870C2);
+  background: var(--color-olive, #596235);
   color: #FFFFFF;
-  box-shadow: 0 0 0 6px rgba(152, 112, 194, 0.25);
+  box-shadow: 0 0 0 6px rgba(89, 98, 53, 0.25);
   transform: scale(1.08);
 }
 
 /* Academic White Card */
 .education-card {
   background: var(--bg-card, #FFFFFF);
-  border: 1.5px solid var(--subtle-borders, #E8DDF1);
+  border: 1.5px solid var(--subtle-borders, #DDDCE4);
   border-radius: var(--radius-lg, 20px);
   padding: 1.15rem 1.45rem;
   box-shadow:
-    0 4px 18px rgba(152, 112, 194, 0.05),
-    0 1px 3px rgba(33, 27, 43, 0.02);
+    0 4px 18px rgba(47, 48, 32, 0.04),
+    0 1px 3px rgba(47, 48, 32, 0.02);
   transition:
     transform var(--transition-normal),
     border-color var(--transition-normal),
@@ -94,10 +95,10 @@
 
 .education-timeline-item:hover .education-card {
   transform: translateY(-3px);
-  border-color: var(--primary-lavender, #9870C2);
+  border-color: var(--color-coral, #D96846);
   box-shadow:
-    0 12px 32px rgba(152, 112, 194, 0.1),
-    0 4px 12px rgba(152, 112, 194, 0.04);
+    0 12px 32px rgba(217, 104, 70, 0.12),
+    0 4px 12px rgba(47, 48, 32, 0.04);
 }
 
 /* Top Row: Duration & Grade */
@@ -116,12 +117,12 @@
   gap: 0.4rem;
   padding: 0.25rem 0.75rem;
   border-radius: var(--radius-full);
-  background: var(--bg-surface, #F3EDF9);
-  border: 1px solid var(--subtle-borders, #E8DDF1);
+  background: var(--color-coral-light, #FBF0EC);
+  border: 1px solid rgba(217, 104, 70, 0.3);
   font-family: var(--font-heading);
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--deep-lavender, #7B43A5);
+  color: var(--color-coral, #D96846);
 }
 
 .edu-grade-pill {
@@ -130,19 +131,19 @@
   gap: 0.4rem;
   padding: 0.25rem 0.75rem;
   border-radius: var(--radius-full);
-  background: var(--bg-main, #FCFBFF);
-  border: 1px solid var(--subtle-borders, #E8DDF1);
+  background: var(--color-olive-light, #F2F4EB);
+  border: 1px solid var(--color-olive-border, #D7DEC2);
   font-family: var(--font-heading);
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--primary-headings, #211B2B);
+  color: var(--color-olive, #596235);
 }
 
 /* Degree */
 .edu-degree {
   font-size: 1.18rem;
   font-weight: 700;
-  color: var(--primary-headings, #211B2B);
+  color: var(--primary-headings, #2F3020);
   margin-bottom: 0.45rem;
   line-height: 1.3;
 }
@@ -152,12 +153,12 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--body-text, #665E70);
+  color: var(--body-text, #565750);
   font-size: 0.925rem;
 }
 
 .edu-inst-icon {
-  color: var(--primary-lavender, #9870C2);
+  color: var(--color-olive, #596235);
   flex-shrink: 0;
 }
 

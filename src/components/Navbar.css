@@ -1,5 +1,6 @@
 /* ==========================================================================
-   PREMIUM FLOATING PILL NAVBAR — LAVENDER & PEARL WHITE THEME
+   PREMIUM FLOATING PILL NAVBAR — MODERN-CLASSIC THEME
+   (Deep Forest Charcoal #2F3020, Lavender Gray #CDCBD6, Burnt Coral #D96846)
    ========================================================================== */
 
 /* ── 1. Top Fixed Outer Wrapper ── */
@@ -41,13 +42,13 @@
   align-items: center;
   justify-content: space-between;
   border-radius: var(--radius-full);
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(47, 48, 32, 0.94);
   backdrop-filter: blur(20px) saturate(160%);
   -webkit-backdrop-filter: blur(20px) saturate(160%);
-  border: 1px solid var(--subtle-borders, #E8DDF1);
+  border: 1px solid rgba(205, 203, 214, 0.22);
   box-shadow:
-    0 8px 30px rgba(152, 112, 194, 0.08),
-    0 2px 8px rgba(152, 112, 194, 0.04);
+    0 10px 32px rgba(34, 35, 23, 0.35),
+    0 2px 8px rgba(34, 35, 23, 0.2);
   box-sizing: border-box;
   transition:
     height var(--transition-normal),
@@ -59,11 +60,11 @@
 /* Scrolled elevation state */
 .navbar-wrapper.is-scrolled .navbar-floating-pill {
   height: 52px;
-  background: rgba(255, 255, 255, 0.94);
-  border-color: rgba(152, 112, 194, 0.3);
+  background: rgba(47, 48, 32, 0.98);
+  border-color: rgba(217, 104, 70, 0.35);
   box-shadow:
-    0 12px 36px rgba(152, 112, 194, 0.12),
-    0 3px 10px rgba(152, 112, 194, 0.06);
+    0 14px 40px rgba(34, 35, 23, 0.45),
+    0 4px 12px rgba(34, 35, 23, 0.25);
 }
 
 /* ── 3. Brand Name (Left) ── */
@@ -71,7 +72,7 @@
   font-family: var(--font-heading);
   font-size: 1.15rem;
   font-weight: 700;
-  color: var(--primary-headings, #211B2B);
+  color: #FFFFFF;
   letter-spacing: -0.025em;
   text-decoration: none;
   display: inline-flex;
@@ -88,7 +89,7 @@
 }
 
 .brand-name {
-  color: var(--primary-headings, #211B2B);
+  color: #FFFFFF;
   transition: color var(--transition-fast);
 }
 
@@ -96,11 +97,12 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--primary-lavender, #9870C2);
+  background: var(--color-coral, #D96846);
+  box-shadow: 0 0 8px rgba(217, 104, 70, 0.6);
 }
 
 .navbar-brand:hover .brand-name {
-  color: var(--deep-lavender, #7B43A5);
+  color: #CDCBD6;
 }
 
 /* ── 4. Desktop Navigation Links (Center) ── */
@@ -129,7 +131,7 @@
   font-family: var(--font-heading);
   font-size: 0.885rem;
   font-weight: 500;
-  color: var(--body-text, #665E70);
+  color: var(--color-lavender-gray, #CDCBD6);
   letter-spacing: -0.01em;
   transition: all var(--transition-fast);
   text-decoration: none;
@@ -137,15 +139,15 @@
 }
 
 .nav-link:hover {
-  color: var(--deep-lavender, #7B43A5);
-  background: rgba(243, 237, 249, 0.65);
+  color: var(--color-coral, #D96846);
+  background: rgba(217, 104, 70, 0.12);
 }
 
 .nav-link.active {
-  color: var(--deep-lavender, #7B43A5);
-  background: var(--bg-surface, #F3EDF9);
+  color: var(--color-coral, #D96846);
+  background: rgba(217, 104, 70, 0.18);
   font-weight: 600;
-  border: 1px solid var(--subtle-borders, #E8DDF1);
+  border: 1px solid rgba(217, 104, 70, 0.35);
 }
 
 /* ── 5. Right Actions: Contact Me Button & Mobile Toggle ── */
@@ -162,7 +164,7 @@
   gap: 0.45rem;
   padding: 0.48rem 1.15rem;
   border-radius: var(--radius-full);
-  background: var(--primary-lavender, #9870C2);
+  background: var(--color-coral, #D96846);
   color: #ffffff;
   font-family: var(--font-heading);
   font-size: 0.875rem;
@@ -170,20 +172,20 @@
   letter-spacing: -0.01em;
   text-decoration: none;
   transition: all var(--transition-normal);
-  box-shadow: 0 3px 12px rgba(152, 112, 194, 0.25);
+  box-shadow: 0 3px 12px rgba(217, 104, 70, 0.35);
   border: 1.5px solid transparent;
 }
 
 .nav-contact-pill:hover {
-  background: var(--deep-lavender, #7B43A5);
+  background: var(--color-coral-hover, #C25534);
   transform: translateY(-1.5px);
-  box-shadow: 0 6px 18px rgba(123, 67, 165, 0.32);
+  box-shadow: 0 6px 18px rgba(194, 85, 52, 0.42);
   color: #ffffff;
 }
 
 .nav-contact-pill.active {
-  background: var(--deep-lavender, #7B43A5);
-  box-shadow: 0 0 0 2px rgba(152, 112, 194, 0.3);
+  background: var(--color-coral-hover, #C25534);
+  box-shadow: 0 0 0 2px rgba(217, 104, 70, 0.45);
 }
 
 .contact-arrow-icon {
@@ -200,20 +202,20 @@
   width: 40px;
   height: 40px;
   border-radius: var(--radius-full);
-  border: 1px solid var(--subtle-borders, #E8DDF1);
-  background: #ffffff;
-  color: var(--primary-headings, #211B2B);
+  border: 1px solid rgba(205, 203, 214, 0.25);
+  background: #3A3B29;
+  color: #CDCBD6;
   align-items: center;
   justify-content: center;
   transition: all var(--transition-fast);
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(152, 112, 194, 0.05);
+  box-shadow: 0 2px 8px rgba(34, 35, 23, 0.3);
 }
 
 .mobile-toggle:hover {
-  background: var(--bg-surface, #F3EDF9);
-  color: var(--deep-lavender, #7B43A5);
-  border-color: var(--primary-lavender, #9870C2);
+  background: #474E2A;
+  color: var(--color-coral, #D96846);
+  border-color: rgba(217, 104, 70, 0.4);
 }
 
 /* ── 6. Mobile Glass Dropdown Menu ── */
@@ -224,13 +226,13 @@
   top: calc(100% + 8px);
   left: 1.25rem;
   right: 1.25rem;
-  background: rgba(255, 255, 255, 0.96);
+  background: rgba(47, 48, 32, 0.98);
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border: 1px solid var(--subtle-borders, #E8DDF1);
+  border: 1px solid rgba(205, 203, 214, 0.22);
   border-radius: var(--radius-xl, 24px);
   padding: 1.25rem 1rem;
-  box-shadow: 0 16px 40px rgba(152, 112, 194, 0.14);
+  box-shadow: 0 16px 40px rgba(34, 35, 23, 0.5);
   transform-origin: top center;
   transform: scale(0.96) translateY(-10px);
   opacity: 0;
@@ -266,7 +268,7 @@
   font-family: var(--font-heading);
   font-size: 0.95rem;
   font-weight: 500;
-  color: var(--body-text, #665E70);
+  color: var(--color-lavender-gray, #CDCBD6);
   text-decoration: none;
   transition: all var(--transition-fast);
 }
@@ -275,20 +277,20 @@
   font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--primary-lavender, #9870C2);
+  color: var(--color-coral, #D96846);
 }
 
 .mobile-dropdown-link:hover,
 .mobile-dropdown-link.active {
-  background: var(--bg-surface, #F3EDF9);
-  color: var(--deep-lavender, #7B43A5);
+  background: rgba(217, 104, 70, 0.16);
+  color: var(--color-coral, #D96846);
   font-weight: 600;
 }
 
 .mobile-dropdown-footer {
   margin-top: 1rem;
   padding-top: 0.85rem;
-  border-top: 1px solid var(--subtle-borders, #E8DDF1);
+  border-top: 1px solid rgba(205, 203, 214, 0.2);
 }
 
 .mobile-contact-pill-btn {
@@ -299,7 +301,7 @@
   width: 100%;
   padding: 0.75rem;
   border-radius: var(--radius-full);
-  background: var(--primary-lavender, #9870C2);
+  background: var(--color-coral, #D96846);
   color: #ffffff;
   font-family: var(--font-heading);
   font-size: 0.9rem;
@@ -309,13 +311,13 @@
 }
 
 .mobile-contact-pill-btn:hover {
-  background: var(--deep-lavender, #7B43A5);
+  background: var(--color-coral-hover, #C25534);
 }
 
 .mobile-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(33, 27, 43, 0.2);
+  background: rgba(34, 35, 23, 0.4);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   z-index: 998;

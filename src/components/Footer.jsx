@@ -50,9 +50,9 @@ export default function Footer() {
           />
           <defs>
             <linearGradient id="footerTopWaveGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#E9D9F7" stopOpacity="0.5" />
-              <stop offset="65%" stopColor="#F3EDF9" stopOpacity="0.25" />
-              <stop offset="100%" stopColor="#FCFBFF" stopOpacity="0" />
+              <stop offset="0%" stopColor="#3A3B29" stopOpacity="0.65" />
+              <stop offset="65%" stopColor="#2F3020" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="#2F3020" stopOpacity="0" />
             </linearGradient>
           </defs>
         </svg>
@@ -77,14 +77,14 @@ export default function Footer() {
           />
           <defs>
             <linearGradient id="footerBottomWaveGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#E9D9F7" stopOpacity="0.45" />
-              <stop offset="50%" stopColor="#F3EDF9" stopOpacity="0.6" />
-              <stop offset="100%" stopColor="#E9D9F7" stopOpacity="0.35" />
+              <stop offset="0%" stopColor="#3A3B29" stopOpacity="0.45" />
+              <stop offset="50%" stopColor="#596235" stopOpacity="0.2" />
+              <stop offset="100%" stopColor="#3A3B29" stopOpacity="0.35" />
             </linearGradient>
             <linearGradient id="footerBottomWaveGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#F3EDF9" stopOpacity="0.75" />
-              <stop offset="60%" stopColor="#EFE5FA" stopOpacity="0.55" />
-              <stop offset="100%" stopColor="#F3EDF9" stopOpacity="0.7" />
+              <stop offset="0%" stopColor="#2F3020" stopOpacity="0.8" />
+              <stop offset="60%" stopColor="#222317" stopOpacity="0.6" />
+              <stop offset="100%" stopColor="#2F3020" stopOpacity="0.75" />
             </linearGradient>
           </defs>
         </svg>

@@ -15,7 +15,7 @@ import './Experience.css';
 function JsBadgeIcon({ size = 13, className = "" }) {
   return (
     <svg width={size} height={size} viewBox="0 0 16 16" fill="none" className={className} aria-hidden="true">
-      <rect width="16" height="16" rx="3.5" fill="#9870C2" />
+      <rect width="16" height="16" rx="3.5" fill="#596235" />
       <text x="8" y="11.5" textAnchor="middle" fill="#FFFFFF" fontSize="8.5" fontWeight="800" fontFamily="sans-serif">JS</text>
     </svg>
   );
@@ -24,7 +24,7 @@ function JsBadgeIcon({ size = 13, className = "" }) {
 function MavenBadgeIcon({ size = 13, className = "" }) {
   return (
     <svg width={size} height={size} viewBox="0 0 16 16" fill="none" className={className} aria-hidden="true">
-      <rect width="16" height="16" rx="3.5" fill="#9870C2" />
+      <rect width="16" height="16" rx="3.5" fill="#596235" />
       <text x="8" y="11.5" textAnchor="middle" fill="#FFFFFF" fontSize="9" fontWeight="800" fontFamily="sans-serif">M</text>
     </svg>
   );
@@ -55,7 +55,7 @@ function SpeshwayLogo({ size = 44 }) {
       <svg width={size * 0.55} height={size * 0.55} viewBox="0 0 24 24" fill="none">
         <path
           d="M19.5 6C18.2 4 15.5 2.5 12 2.5C7.2 2.5 4 5.2 4 9C4 13.8 20 12.5 20 17C20 20.2 16.8 22 12 22C7.2 22 4.5 19.8 3.5 17.5"
-          stroke="#9870C2"
+          stroke="#596235"
           strokeWidth="3.2"
           strokeLinecap="round"
           strokeLinejoin="round"

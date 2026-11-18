@@ -1,18 +1,19 @@
 /* ==========================================================================
-   FOOTER COMPONENT — EXACT REFERENCE LAVENDER & PEARL THEME
+   FOOTER COMPONENT — MODERN-CLASSIC THEME
+   (Deep Forest Charcoal #2F3020, Lavender Gray #CDCBD6, Burnt Coral #D96846, Olive Green #596235)
    ========================================================================== */
 
 .footer-section {
   position: relative;
-  background-color: var(--bg-main, #FCFBFF);
-  border-top: 1px solid var(--subtle-borders, #E8DDF1);
+  background-color: var(--color-charcoal, #2F3020);
+  border-top: 1px solid rgba(205, 203, 214, 0.16);
   padding-top: clamp(2.75rem, 4.5vw, 4rem);
   padding-bottom: 1.75rem;
   overflow: hidden;
   z-index: 1;
 }
 
-/* ── Decorative Flowing Lavender Waves Underlay ── */
+/* ── Decorative Flowing Waves Underlay ── */
 .footer-waves-wrap {
   position: absolute;
   top: 0;
@@ -46,7 +47,7 @@
   width: 100%;
   height: clamp(90px, 12vw, 160px);
   pointer-events: none;
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
 /* ── Container ── */
@@ -84,17 +85,17 @@
   width: 48px;
   height: 48px;
   border-radius: 14px;
-  background: var(--bg-surface, #F3EDF9);
-  border: 1.5px solid var(--subtle-borders, #E8DDF1);
+  background: #3A3B29;
+  border: 1.5px solid rgba(205, 203, 214, 0.22);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(152, 112, 194, 0.08);
+  box-shadow: 0 4px 12px rgba(34, 35, 23, 0.35);
 }
 
 .footer-code-icon {
-  color: var(--deep-lavender, #7B43A5);
+  color: var(--color-coral, #D96846);
 }
 
 .footer-brand-identity {
@@ -106,21 +107,21 @@
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: 1.3rem;
   font-weight: 800;
-  color: var(--primary-headings, #211B2B);
+  color: #FFFFFF;
   letter-spacing: -0.02em;
   margin: 0 0 2px 0;
   line-height: 1.2;
 }
 
 .brand-name-purple {
-  color: var(--deep-lavender, #7B43A5);
+  color: var(--color-coral, #D96846);
 }
 
 .footer-brand-role {
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: 0.88rem;
   font-weight: 500;
-  color: var(--body-text, #665E70);
+  color: var(--color-lavender-gray, #CDCBD6);
   margin: 0;
   line-height: 1.2;
 }
@@ -128,9 +129,10 @@
 .footer-brand-tagline {
   font-size: 0.925rem;
   line-height: 1.65;
-  color: var(--body-text, #665E70);
+  color: var(--color-lavender-gray, #CDCBD6);
   max-width: 320px;
   margin: 0 0 1.25rem 0;
+  opacity: 0.9;
 }
 
 /* 4 Rounded-Square Social Buttons */
@@ -144,23 +146,23 @@
   width: 42px;
   height: 42px;
   border-radius: 12px;
-  background: var(--bg-surface, #F3EDF9);
-  border: 1.5px solid var(--subtle-borders, #E8DDF1);
+  background: #3A3B29;
+  border: 1.5px solid rgba(205, 203, 214, 0.22);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--primary-headings, #211B2B);
+  color: var(--color-lavender-gray, #CDCBD6);
   text-decoration: none;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 2px 6px rgba(152, 112, 194, 0.04);
+  box-shadow: 0 2px 6px rgba(34, 35, 23, 0.25);
 }
 
 .footer-social-btn:hover {
   transform: translateY(-3px);
-  background: var(--lavender-highlight, #E9D9F7);
-  border-color: var(--primary-lavender, #9870C2);
-  color: var(--deep-lavender, #7B43A5);
-  box-shadow: 0 6px 16px rgba(152, 112, 194, 0.16);
+  background: var(--color-coral, #D96846);
+  border-color: var(--color-coral, #D96846);
+  color: #FFFFFF;
+  box-shadow: 0 6px 16px rgba(217, 104, 70, 0.35);
 }
 
 /* ── Columns 2 & 3: Quick Links & More ── */
@@ -173,7 +175,7 @@
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--primary-headings, #211B2B);
+  color: #FFFFFF;
   letter-spacing: -0.01em;
   margin: 0 0 6px 0;
 }
@@ -181,7 +183,7 @@
 .footer-heading-underline {
   width: 30px;
   height: 2.5px;
-  background: var(--deep-lavender, #7B43A5);
+  background: var(--color-coral, #D96846);
   border-radius: 2px;
   margin-bottom: 16px;
 }
@@ -203,23 +205,24 @@
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: 0.915rem;
   font-weight: 500;
-  color: var(--body-text, #665E70);
-  transition: color 0.2s ease;
+  color: var(--color-lavender-gray, #CDCBD6);
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .nav-chevron-icon {
-  color: var(--deep-lavender, #7B43A5);
+  color: var(--color-olive, #596235);
   transition: transform 0.2s ease, color 0.2s ease;
   flex-shrink: 0;
 }
 
 .footer-nav-link:hover {
-  color: var(--deep-lavender, #7B43A5);
+  color: var(--color-coral, #D96846);
+  transform: translateX(2px);
 }
 
 .footer-nav-link:hover .nav-chevron-icon {
   transform: translateX(3px);
-  color: var(--deep-lavender, #7B43A5);
+  color: var(--color-coral, #D96846);
 }
 
 /* ── Column 4: Premium Glassmorphism Contact Card ── */
@@ -229,23 +232,24 @@
 }
 
 .footer-contact-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.94) 0%, rgba(243, 237, 249, 0.85) 100%);
+  background: rgba(58, 59, 41, 0.85);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1.5px solid rgba(232, 221, 241, 0.95);
+  border: 1.5px solid rgba(205, 203, 214, 0.25);
   border-radius: 28px;
   padding: clamp(1.35rem, 2vw, 1.75rem);
   box-shadow:
-    0 16px 36px rgba(152, 112, 194, 0.10),
-    0 4px 12px rgba(152, 112, 194, 0.04);
+    0 16px 36px rgba(34, 35, 23, 0.4),
+    0 4px 12px rgba(34, 35, 23, 0.2);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .footer-contact-card:hover {
   transform: translateY(-4px);
+  border-color: rgba(217, 104, 70, 0.5);
   box-shadow:
-    0 20px 44px rgba(152, 112, 194, 0.16),
-    0 6px 16px rgba(152, 112, 194, 0.06);
+    0 20px 44px rgba(34, 35, 23, 0.55),
+    0 6px 16px rgba(217, 104, 70, 0.2);
 }
 
 .contact-card-top-row {
@@ -259,17 +263,17 @@
   width: 44px;
   height: 44px;
   border-radius: 13px;
-  background: var(--lavender-highlight, #E9D9F7);
-  border: 1.5px solid rgba(216, 195, 238, 0.8);
+  background: var(--color-olive, #596235);
+  border: 1.5px solid rgba(215, 222, 194, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 4px 10px rgba(152, 112, 194, 0.08);
+  box-shadow: 0 4px 10px rgba(34, 35, 23, 0.3);
 }
 
 .contact-card-send-icon {
-  color: var(--deep-lavender, #7B43A5);
+  color: #FFFFFF;
   transform: translate(1px, -1px);
 }
 
@@ -283,7 +287,7 @@
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: 1.05rem;
   font-weight: 800;
-  color: var(--primary-headings, #211B2B);
+  color: #FFFFFF;
   letter-spacing: -0.015em;
 }
 
@@ -291,14 +295,14 @@
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: 1.08rem;
   font-weight: 800;
-  color: var(--deep-lavender, #7B43A5);
+  color: var(--color-coral, #D96846);
   letter-spacing: -0.015em;
 }
 
 .contact-card-desc {
   font-size: 0.885rem;
   line-height: 1.55;
-  color: var(--body-text, #665E70);
+  color: var(--color-lavender-gray, #CDCBD6);
   margin: 0 0 16px 0;
 }
 
@@ -315,19 +319,20 @@
   width: 100%;
   padding: 11px 22px;
   border-radius: 9999px;
-  background: linear-gradient(135deg, #7B43A5 0%, #5E2393 100%);
+  background: var(--color-coral, #D96846);
   color: #FFFFFF;
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: 0.94rem;
   font-weight: 600;
   text-decoration: none;
-  box-shadow: 0 8px 22px rgba(123, 67, 165, 0.32);
+  box-shadow: 0 8px 22px rgba(217, 104, 70, 0.35);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .contact-card-cta-button:hover {
+  background: var(--color-coral-hover, #C25534);
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(123, 67, 165, 0.44);
+  box-shadow: 0 12px 28px rgba(194, 85, 52, 0.45);
 }
 
 .cta-arrow-symbol {
@@ -343,7 +348,7 @@
 .footer-bottom-divider {
   width: 100%;
   height: 1px;
-  background: var(--subtle-borders, #E8DDF1);
+  background: rgba(205, 203, 214, 0.18);
   margin-bottom: 1.25rem;
 }
 
@@ -363,7 +368,7 @@
 
 .footer-copyright-text {
   font-size: 0.86rem;
-  color: var(--body-text, #665E70);
+  color: var(--color-lavender-gray, #CDCBD6);
   margin: 0;
   font-weight: 400;
 }
@@ -382,13 +387,13 @@
   gap: 7px;
   padding: 6px 14px;
   border-radius: 9999px;
-  background: #FFFFFF;
-  border: 1px solid var(--subtle-borders, #E8DDF1);
+  background: #3A3B29;
+  border: 1px solid rgba(205, 203, 214, 0.22);
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: 0.82rem;
   font-weight: 500;
-  color: var(--primary-headings, #211B2B);
-  box-shadow: 0 2px 6px rgba(152, 112, 194, 0.04);
+  color: var(--color-lavender-gray, #CDCBD6);
+  box-shadow: 0 2px 6px rgba(34, 35, 23, 0.2);
 }
 
 .availability-status-dot {
@@ -413,7 +418,7 @@
 .footer-bottom-vertical-sep {
   width: 1px;
   height: 18px;
-  background: var(--subtle-borders, #E8DDF1);
+  background: rgba(205, 203, 214, 0.2);
   display: inline-block;
   margin: 0 4px;
 }
@@ -426,7 +431,7 @@
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
   font-size: 0.86rem;
   font-weight: 600;
-  color: var(--deep-lavender, #7B43A5);
+  color: var(--color-lavender-gray, #CDCBD6);
   text-decoration: underline;
   text-underline-offset: 3px;
   cursor: pointer;
@@ -434,13 +439,13 @@
 }
 
 .book-call-icon {
-  color: var(--deep-lavender, #7B43A5);
+  color: var(--color-coral, #D96846);
   flex-shrink: 0;
 }
 
 .footer-book-call-link:hover {
-  color: #5E2393;
-  text-decoration-color: #5E2393;
+  color: var(--color-coral, #D96846);
+  text-decoration-color: var(--color-coral, #D96846);
 }
 
 /* Circular Back to Top Button */
@@ -448,23 +453,23 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border: 1.5px solid var(--subtle-borders, #E8DDF1);
-  background: #FFFFFF;
-  color: var(--primary-headings, #211B2B);
+  border: 1.5px solid rgba(205, 203, 214, 0.25);
+  background: #3A3B29;
+  color: var(--color-lavender-gray, #CDCBD6);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 2px 6px rgba(152, 112, 194, 0.04);
+  box-shadow: 0 2px 6px rgba(34, 35, 23, 0.25);
 }
 
 .footer-back-to-top-circle:hover {
-  background: var(--bg-surface, #F3EDF9);
-  border-color: var(--primary-lavender, #9870C2);
-  color: var(--deep-lavender, #7B43A5);
+  background: var(--color-coral, #D96846);
+  border-color: var(--color-coral, #D96846);
+  color: #FFFFFF;
   transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(152, 112, 194, 0.16);
+  box-shadow: 0 6px 14px rgba(217, 104, 70, 0.35);
 }
 
 /* ── Responsive Breakpoints ── */

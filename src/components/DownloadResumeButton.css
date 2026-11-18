@@ -1,5 +1,5 @@
 /* ==========================================================================
-   DOWNLOAD RESUME BUTTON — LAVENDER & PEARL WHITE THEME
+   DOWNLOAD RESUME BUTTON — SECONDARY CTA (OLIVE GREEN ACCENT)
    ========================================================================== */
 
 .dl-button {
@@ -8,9 +8,9 @@
   justify-content: center;
   gap: 0.65rem;
   padding: 0.82rem 1.65rem;
-  background-color: var(--bg-card, #FFFFFF);
-  border: 1.5px solid var(--subtle-borders, #E8DDF1);
-  color: var(--primary-headings, #211B2B);
+  background-color: var(--color-olive-light, #F2F4EB);
+  border: 1.5px solid var(--color-olive, #596235);
+  color: var(--color-olive, #596235);
   border-radius: var(--radius-full);
   cursor: pointer;
   transition: all var(--transition-normal);
@@ -21,15 +21,15 @@
   text-decoration: none;
   white-space: nowrap;
   user-select: none;
-  box-shadow: 0 4px 16px rgba(152, 112, 194, 0.05);
+  box-shadow: 0 4px 16px rgba(89, 98, 53, 0.08);
 }
 
 .dl-button:hover {
-  background-color: var(--bg-surface, #F3EDF9);
-  border-color: var(--primary-lavender, #9870C2);
-  color: var(--deep-lavender, #7B43A5);
+  background-color: var(--color-olive, #596235);
+  border-color: var(--color-olive, #596235);
+  color: #FFFFFF;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(152, 112, 194, 0.14);
+  box-shadow: 0 8px 24px rgba(89, 98, 53, 0.24);
 }
 
 .dl-button:active {
@@ -42,12 +42,12 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  color: var(--primary-lavender, #9870C2);
+  color: var(--color-olive, #596235);
   transition: color var(--transition-fast);
 }
 
 .dl-button:hover .dl-button-icon {
-  color: var(--deep-lavender, #7B43A5);
+  color: #FFFFFF;
 }
 
 .dl-button-icon svg {

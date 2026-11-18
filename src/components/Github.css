@@ -1,5 +1,6 @@
 /* ==========================================================================
-   GITHUB / OPEN SOURCE SECTION — LAVENDER & PEARL WHITE THEME
+   GITHUB / OPEN SOURCE SECTION — MODERN-CLASSIC THEME
+   (Soft Lavender Gray, Burnt Coral, Olive Green, Deep Forest Charcoal)
    ========================================================================== */
 
 .github-section {
@@ -12,19 +13,19 @@
 }
 
 .github-title-accent {
-  color: var(--primary-lavender, #9870C2);
+  color: var(--color-coral, #D96846);
 }
 
 /* ── GitHub Overview Card ── */
 .github-overview-card {
   background: var(--bg-card, #FFFFFF);
-  border: 1.5px solid var(--subtle-borders, #E8DDF1);
+  border: 1.5px solid var(--subtle-borders, #DDDCE4);
   border-radius: var(--radius-xl, 24px);
   padding: 1.25rem 1.65rem;
   margin-bottom: 1.35rem;
   box-shadow:
-    0 6px 24px rgba(152, 112, 194, 0.05),
-    0 2px 8px rgba(152, 112, 194, 0.02);
+    0 6px 24px rgba(47, 48, 32, 0.04),
+    0 2px 8px rgba(47, 48, 32, 0.02);
 }
 
 .github-profile-row {
@@ -45,8 +46,8 @@
   width: 52px;
   height: 52px;
   border-radius: var(--radius-md, 14px);
-  background: var(--bg-surface, #F3EDF9);
-  color: var(--deep-lavender, #7B43A5);
+  background: var(--color-olive-light, #F2F4EB);
+  color: var(--color-olive, #596235);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -56,13 +57,13 @@
 .profile-handle {
   font-size: 1.2rem;
   font-weight: 700;
-  color: var(--primary-headings, #211B2B);
+  color: var(--primary-headings, #2F3020);
   margin-bottom: 0.15rem;
 }
 
 .profile-bio {
   font-size: 0.9rem;
-  color: var(--body-text, #665E70);
+  color: var(--body-text, #565750);
 }
 
 .github-profile-btn {
@@ -79,15 +80,15 @@
 
 .repo-card {
   background: var(--bg-card, #FFFFFF);
-  border: 1.5px solid var(--subtle-borders, #E8DDF1);
+  border: 1.5px solid var(--subtle-borders, #DDDCE4);
   border-radius: var(--radius-lg, 20px);
   padding: 1.25rem 1.35rem;
   display: flex;
   flex-direction: column;
   text-decoration: none;
   box-shadow:
-    0 4px 18px rgba(152, 112, 194, 0.05),
-    0 1px 3px rgba(33, 27, 43, 0.02);
+    0 4px 18px rgba(47, 48, 32, 0.04),
+    0 1px 3px rgba(47, 48, 32, 0.02);
   transition:
     transform var(--transition-normal),
     border-color var(--transition-normal),
@@ -96,10 +97,10 @@
 
 .repo-card:hover {
   transform: translateY(-4px);
-  border-color: var(--primary-lavender, #9870C2);
+  border-color: var(--color-coral, #D96846);
   box-shadow:
-    0 14px 36px rgba(152, 112, 194, 0.11),
-    0 4px 12px rgba(152, 112, 194, 0.04);
+    0 14px 36px rgba(217, 104, 70, 0.12),
+    0 4px 12px rgba(47, 48, 32, 0.04);
 }
 
 .repo-header {
@@ -110,32 +111,32 @@
 }
 
 .repo-icon {
-  color: var(--primary-lavender, #9870C2);
+  color: var(--color-coral, #D96846);
   flex-shrink: 0;
 }
 
 .repo-name {
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--primary-headings, #211B2B);
+  color: var(--primary-headings, #2F3020);
   margin: 0;
   flex: 1;
 }
 
 .repo-external-icon {
-  color: var(--text-muted, #8F859B);
+  color: var(--text-muted, #7C7D73);
   transition: all var(--transition-fast);
 }
 
 .repo-card:hover .repo-external-icon {
-  color: var(--deep-lavender, #7B43A5);
+  color: var(--color-coral, #D96846);
   transform: translate(2px, -2px);
 }
 
 .repo-desc {
   font-size: 0.9rem;
   line-height: 1.6;
-  color: var(--body-text, #665E70);
+  color: var(--body-text, #565750);
   margin-bottom: 1.25rem;
   flex: 1;
 }
@@ -152,18 +153,18 @@
   gap: 0.45rem;
   font-size: 0.785rem;
   font-weight: 500;
-  color: var(--deep-lavender, #7B43A5);
-  background: var(--bg-surface, #F3EDF9);
+  color: var(--color-olive, #596235);
+  background: var(--color-olive-light, #F2F4EB);
   padding: 0.25rem 0.65rem;
   border-radius: var(--radius-full);
-  border: 1px solid var(--subtle-borders, #E8DDF1);
+  border: 1px solid var(--color-olive-border, #D7DEC2);
 }
 
 .lang-dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--primary-lavender, #9870C2);
+  background: var(--color-olive, #596235);
 }
 
 /* ── Responsive Queries ── */

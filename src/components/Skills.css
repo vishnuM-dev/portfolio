@@ -1,6 +1,6 @@
 /* ==========================================================================
    TECHNICAL SKILLS & ECOSYSTEM — COMPACT PREMIUM SHOWCASE
-   Lavender & Pearl White Theme
+   Modern-Classic Theme (Soft Lavender Gray, Burnt Coral, Olive Green, Deep Forest Charcoal)
    ========================================================================== */
 
 .skills-section {
@@ -14,7 +14,7 @@
 }
 
 .skills-title-accent {
-  color: var(--primary-lavender, #9870C2);
+  color: var(--color-coral, #D96846);
 }
 
 /* ── 3-Column Responsive Grid with Content-Based Natural Heights ── */
@@ -22,18 +22,18 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px 20px;
-  align-items: start; /* Ensures cards hug their content with natural heights */
+  align-items: start;
 }
 
 /* ── Compact Category Card ── */
 .skills-compact-card {
   background: var(--bg-card, #FFFFFF);
-  border: 1px solid var(--subtle-borders, #E8DDF1);
+  border: 1px solid var(--subtle-borders, #DDDCE4);
   border-radius: 20px;
   padding: 1.25rem 1.35rem;
   box-shadow:
-    0 4px 18px rgba(152, 112, 194, 0.05),
-    0 1px 3px rgba(33, 27, 43, 0.02);
+    0 4px 18px rgba(47, 48, 32, 0.04),
+    0 1px 3px rgba(47, 48, 32, 0.02);
   transition:
     transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
     border-color 220ms cubic-bezier(0.16, 1, 0.3, 1),
@@ -43,13 +43,13 @@
   flex-direction: column;
 }
 
-/* Card Hover: Upward 3–4px, strengthened border, softer shadow */
+/* Card Hover */
 .skills-compact-card:hover {
   transform: translateY(-3.5px);
-  border-color: var(--primary-lavender, #9870C2);
+  border-color: var(--color-coral, #D96846);
   box-shadow:
-    0 12px 30px rgba(152, 112, 194, 0.11),
-    0 2px 6px rgba(152, 112, 194, 0.04);
+    0 12px 30px rgba(217, 104, 70, 0.12),
+    0 2px 6px rgba(47, 48, 32, 0.04);
 }
 
 /* ── Clean Category Header ── */
@@ -59,15 +59,15 @@
   gap: 0.75rem;
   padding-bottom: 0.75rem;
   margin-bottom: 0.85rem;
-  border-bottom: 1px solid #F3EDF9;
+  border-bottom: 1px solid var(--subtle-borders, #DDDCE4);
 }
 
 .card-icon-square {
   width: 36px;
   height: 36px;
   border-radius: 10px;
-  background: var(--bg-surface, #F3EDF9);
-  color: var(--deep-lavender, #7B43A5);
+  background: var(--color-olive-light, #F2F4EB);
+  color: var(--color-olive, #596235);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,7 +76,7 @@
 }
 
 .skills-compact-card:hover .card-icon-square {
-  background: var(--primary-lavender, #9870C2);
+  background: var(--color-coral, #D96846);
   color: #FFFFFF;
 }
 
@@ -91,7 +91,7 @@
   font-family: var(--font-heading);
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--primary-headings, #211B2B);
+  color: var(--primary-headings, #2F3020);
   line-height: 1.25;
   letter-spacing: -0.015em;
 }
@@ -99,7 +99,7 @@
 .card-subtitle-text {
   font-family: var(--font-body);
   font-size: 0.775rem;
-  color: var(--body-text, #665E70);
+  color: var(--body-text, #565750);
   line-height: 1.35;
   margin-top: 0.1rem;
   white-space: nowrap;
@@ -122,9 +122,9 @@
   gap: 0.45rem;
   padding: 0.35rem 0.75rem;
   border-radius: var(--radius-full);
-  background: var(--bg-main, #FCFBFF);
-  border: 1px solid var(--subtle-borders, #E8DDF1);
-  color: var(--primary-headings, #211B2B);
+  background: var(--bg-main, #F7F6F9);
+  border: 1px solid var(--subtle-borders, #DDDCE4);
+  color: var(--primary-headings, #2F3020);
   font-family: var(--font-heading);
   font-size: 0.8rem;
   font-weight: 500;
@@ -141,25 +141,25 @@
   outline: none;
 }
 
-/* Skill Chip Hover: Upward 1-2px, richer lavender tint, lavender border */
+/* Skill Chip Hover: Coral highlight */
 .skill-chip:hover,
 .skill-chip:focus-visible {
   transform: translateY(-1.5px);
-  background: var(--lavender-highlight, #E9D9F7);
-  border-color: var(--primary-lavender, #9870C2);
-  color: var(--deep-lavender, #7B43A5);
-  box-shadow: 0 3px 10px rgba(152, 112, 194, 0.12);
+  background: var(--color-coral-light, #FBF0EC);
+  border-color: var(--color-coral, #D96846);
+  color: var(--color-coral, #D96846);
+  box-shadow: 0 3px 10px rgba(217, 104, 70, 0.14);
 }
 
 .chip-tech-icon {
-  color: var(--primary-lavender, #9870C2);
+  color: var(--color-olive, #596235);
   flex-shrink: 0;
   transition: color 180ms ease, transform 180ms ease;
 }
 
 .skill-chip:hover .chip-tech-icon,
 .skill-chip:focus-visible .chip-tech-icon {
-  color: var(--deep-lavender, #7B43A5);
+  color: var(--color-coral, #D96846);
   transform: scale(1.08);
 }
 
@@ -171,12 +171,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--deep-lavender, #7B43A5);
+  color: var(--color-olive, #596235);
   opacity: 0.75;
   margin-left: -0.1rem;
 }
 
 .skill-chip:hover .chip-info-indicator {
+  color: var(--color-coral, #D96846);
   opacity: 1;
 }
 
@@ -186,7 +187,7 @@
   bottom: calc(100% + 8px);
   left: 50%;
   transform: translateX(-50%) translateY(4px);
-  background: var(--primary-headings, #211B2B);
+  background: var(--color-charcoal, #2F3020);
   color: #FFFFFF;
   padding: 0.45rem 0.75rem;
   border-radius: 8px;
@@ -197,7 +198,7 @@
   pointer-events: none;
   opacity: 0;
   visibility: hidden;
-  box-shadow: 0 6px 20px rgba(33, 27, 43, 0.22);
+  box-shadow: 0 6px 20px rgba(47, 48, 32, 0.28);
   z-index: 100;
   display: flex;
   flex-direction: column;
@@ -217,12 +218,12 @@
   transform: translateX(-50%);
   border-width: 5px;
   border-style: solid;
-  border-color: var(--primary-headings, #211B2B) transparent transparent transparent;
+  border-color: var(--color-charcoal, #2F3020) transparent transparent transparent;
 }
 
 .tooltip-title {
   font-weight: 700;
-  color: var(--lavender-highlight, #E9D9F7);
+  color: var(--color-coral, #D96846);
   font-size: 0.7rem;
   letter-spacing: 0.02em;
   text-transform: uppercase;
@@ -230,7 +231,7 @@
 
 .tooltip-desc {
   font-weight: 400;
-  color: #FFFFFF;
+  color: var(--color-lavender-gray, #CDCBD6);
 }
 
 /* Reveal Tooltip on Hover or Keyboard Focus */

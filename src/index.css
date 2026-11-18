@@ -1,42 +1,61 @@
 /* ==========================================================================
    M. VISHNU VARDHAN REDDY - JAVA FULL STACK DEVELOPER PORTFOLIO
-   Theme: Premium Lavender & Pearl White Design System
+   Theme: Modern-Classic Palette (Soft Lavender Gray, Burnt Coral, Olive Green, Deep Forest Charcoal)
    ========================================================================== */
 
 :root {
   /* ── 1. GLOBAL COLOR PALETTE (Strict Spec) ── */
-  --bg-main:            #FCFBFF;  /* Main background */
-  --bg-alt:             #F7F3FC;  /* Alternate background */
-  --bg-surface:         #F3EDF9;  /* Soft lavender surface */
-  --bg-card:            #FFFFFF;  /* Card background */
-  --primary-lavender:   #9870C2;  /* Primary lavender */
-  --deep-lavender:      #7B43A5;  /* Deep lavender */
-  --lavender-highlight: #E9D9F7;  /* Lavender highlight */
-  --primary-headings:   #211B2B;  /* Primary headings / Charcoal */
-  --body-text:          #665E70;  /* Body text */
-  --subtle-borders:     #E8DDF1;  /* Subtle borders */
+  --color-lavender-gray:        #CDCBD6;  /* Soft Lavender Gray */
+  --color-lavender-gray-light:  #EBE9F0;  /* Light Lavender Gray */
+  --color-lavender-gray-subtle: #F7F6F9;  /* Off-white / Subtle Lavender Gray */
+  --color-coral:                #D96846;  /* Burnt Coral Orange */
+  --color-coral-hover:          #C25534;  /* Deep Burnt Coral */
+  --color-coral-light:          #FBF0EC;  /* Coral Light Tint */
+  --color-olive:                #596235;  /* Olive Green */
+  --color-olive-hover:          #474E2A;  /* Deep Olive Green */
+  --color-olive-light:          #F2F4EB;  /* Olive Light Tint */
+  --color-olive-border:         #D7DEC2;  /* Olive Border Tint */
+  --color-charcoal:             #2F3020;  /* Deep Forest Charcoal */
+  --color-charcoal-deep:        #222317;  /* Darker Charcoal */
+  --color-charcoal-surface:     #3A3B29;  /* Elevated Charcoal Surface */
 
-  /* ── Standard Aliases & Support Tokens ── */
-  --bg-primary:         var(--bg-main);
-  --bg-secondary:       var(--bg-alt);
-  --accent-primary:     var(--primary-lavender);
-  --accent-deep:        var(--deep-lavender);
-  --accent-hover:       var(--deep-lavender);
-  --accent-secondary:   #A985D2;
-  --accent-highlight:   var(--lavender-highlight);
+  /* ── Structural Backgrounds ── */
+  --bg-main:            #F7F6F9;  /* Main background (Soft Lavender Gray subtle) */
+  --bg-alt:             #EFECEF;  /* Alternate background */
+  --bg-surface:         #EBE9F0;  /* Soft surface */
+  --bg-card:            #FFFFFF;  /* Card background */
+  --bg-dark:            #2F3020;  /* Deep Forest Charcoal */
+  --bg-dark-surface:    #3A3B29;  /* Elevated Charcoal */
+
+  /* ── Brand Theme Aliases ── */
+  --primary-headings:   #2F3020;  /* Deep Forest Charcoal */
+  --body-text:          #565750;  /* Refined Charcoal Muted Body */
+  --text-muted:         #7C7D73;  /* Secondary Muted Text */
+  --text-on-dark:       #CDCBD6;  /* Lavender Gray on Charcoal */
+  --subtle-borders:     #DDDCE4;  /* Lavender-Gray subtle borders */
+  --border-strong:      #C8C6D1;  /* Strengthened Lavender-Gray borders */
+
+  /* ── Primary & Accent Mappings ── */
+  --primary-accent:     #D96846;  /* Burnt Coral Orange */
+  --primary-lavender:   #D96846;  /* Aliased to Burnt Coral for primary CTA/highlights */
+  --deep-lavender:      #596235;  /* Aliased to Olive Green for secondary badges/accents */
+  --lavender-highlight: #FBF0EC;  /* Coral subtle tint */
+
+  --accent-primary:     var(--color-coral);
+  --accent-hover:       var(--color-coral-hover);
+  --accent-secondary:   var(--color-olive);
+  --accent-highlight:   var(--color-coral-light);
   --text-primary:       var(--primary-headings);
   --text-secondary:     var(--body-text);
-  --text-muted:         #8F859B;
   --text-inverse:       #FFFFFF;
   --border-subtle:      var(--subtle-borders);
-  --border-strong:      #D9CBEC;
-  --border-active:      var(--primary-lavender);
-  --border-accent:      rgba(152, 112, 194, 0.28);
+  --border-active:      var(--color-coral);
+  --border-accent:      rgba(217, 104, 70, 0.28);
 
-  --accent-glow:        rgba(152, 112, 194, 0.12);
-  --accent-glow-card:   rgba(152, 112, 194, 0.08);
-  --accent-gradient:    linear-gradient(135deg, #9870C2 0%, #7B43A5 100%);
-  --accent-gradient-btn: linear-gradient(135deg, #9870C2 0%, #7B43A5 100%);
+  --accent-glow:        rgba(217, 104, 70, 0.14);
+  --accent-glow-card:   rgba(89, 98, 53, 0.08);
+  --accent-gradient:    linear-gradient(135deg, #D96846 0%, #C25534 100%);
+  --accent-gradient-btn: linear-gradient(135deg, #D96846 0%, #C25534 100%);
 
   /* ── Typography Tokens ── */
   --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -63,10 +82,10 @@
   --radius-full: 9999px;
 
   /* ── Shadows ── */
-  --shadow-subtle: 0 4px 20px rgba(152, 112, 194, 0.05);
-  --shadow-card:   0 8px 30px rgba(152, 112, 194, 0.07);
-  --shadow-hover:  0 14px 40px rgba(152, 112, 194, 0.12);
-  --shadow-float:  0 12px 36px rgba(33, 27, 43, 0.06);
+  --shadow-subtle: 0 4px 20px rgba(47, 48, 32, 0.04);
+  --shadow-card:   0 8px 30px rgba(47, 48, 32, 0.06);
+  --shadow-hover:  0 14px 40px rgba(47, 48, 32, 0.10);
+  --shadow-float:  0 12px 36px rgba(47, 48, 32, 0.12);
 }
 
 /* ── Base Resets ── */
@@ -109,12 +128,12 @@ body {
   border-radius: var(--radius-full);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-lavender);
+  background: var(--color-coral);
 }
 
 /* ── Focus Accessibility ── */
 :focus-visible {
-  outline: 2px solid var(--primary-lavender);
+  outline: 2px solid var(--color-coral);
   outline-offset: 3px;
   border-radius: var(--radius-xs);
 }
@@ -206,16 +225,16 @@ section[id] {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.32rem 0.85rem;
+  padding: 0.35rem 0.9rem;
   border-radius: var(--radius-full);
-  background: var(--bg-surface);
-  border: 1px solid var(--subtle-borders);
+  background: var(--color-olive-light);
+  border: 1px solid var(--color-olive-border);
   font-family: var(--font-heading);
   font-size: 0.775rem;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--deep-lavender);
+  color: var(--color-olive);
   margin-bottom: 0.75rem;
   width: fit-content;
   user-select: none;
@@ -259,37 +278,43 @@ section[id] {
   box-sizing: border-box;
 }
 
+/* Primary CTA: Burnt Coral Orange (#D96846) with light text */
 .btn-primary {
-  background: var(--primary-lavender);
+  background: var(--color-coral);
   color: #ffffff;
   border: 1.5px solid transparent;
-  box-shadow: 0 4px 16px rgba(152, 112, 194, 0.25);
+  box-shadow: 0 4px 16px rgba(217, 104, 70, 0.28);
 }
 
 .btn-primary:hover {
-  background: var(--deep-lavender);
+  background: var(--color-coral-hover);
   color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(123, 67, 165, 0.32);
+  box-shadow: 0 8px 24px rgba(217, 104, 70, 0.36);
 }
 
 .btn-primary * {
   color: #ffffff;
 }
 
+/* Secondary CTA: Olive Green subtle background / outline */
 .btn-secondary {
-  background-color: var(--bg-card);
-  color: var(--primary-headings);
-  border: 1.5px solid var(--subtle-borders);
+  background-color: var(--color-olive-light);
+  color: var(--color-olive);
+  border: 1.5px solid var(--color-olive);
   box-shadow: var(--shadow-subtle);
 }
 
 .btn-secondary:hover {
-  background-color: var(--bg-surface);
-  border-color: var(--primary-lavender);
-  color: var(--deep-lavender);
+  background-color: var(--color-olive);
+  border-color: var(--color-olive);
+  color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(152, 112, 194, 0.12);
+  box-shadow: 0 6px 20px rgba(89, 98, 53, 0.22);
+}
+
+.btn-secondary:hover * {
+  color: #ffffff;
 }
 
 .btn-icon {
@@ -305,15 +330,15 @@ section[id] {
   justify-content: center;
   transition: all var(--transition-fast);
   flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(152, 112, 194, 0.04);
+  box-shadow: 0 2px 8px rgba(47, 48, 32, 0.04);
 }
 
 .btn-icon:hover {
-  color: var(--deep-lavender);
-  border-color: var(--primary-lavender);
-  background: var(--bg-surface);
+  color: var(--color-coral);
+  border-color: var(--color-coral);
+  background: var(--color-coral-light);
   transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(152, 112, 194, 0.14);
+  box-shadow: 0 4px 14px rgba(217, 104, 70, 0.16);
 }
 
 /* ── Badges ── */
@@ -326,24 +351,24 @@ section[id] {
   font-family: var(--font-heading);
   font-size: 0.775rem;
   font-weight: 500;
-  background: var(--bg-surface);
-  border: 1px solid var(--subtle-borders);
-  color: var(--deep-lavender);
+  background: var(--color-olive-light);
+  border: 1px solid var(--color-olive-border);
+  color: var(--color-olive);
   transition: all var(--transition-fast);
 }
 
 .badge:hover {
-  border-color: var(--primary-lavender);
-  background: var(--lavender-highlight);
-  color: var(--deep-lavender);
+  border-color: var(--color-coral);
+  background: var(--color-coral-light);
+  color: var(--color-coral);
 }
 
 /* ── Background Subtle Grid ── */
 .bg-grid-pattern {
   background-size: 40px 40px;
   background-image:
-    linear-gradient(to right, rgba(152, 112, 194, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(152, 112, 194, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(205, 203, 214, 0.25) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(205, 203, 214, 0.25) 1px, transparent 1px);
 }
 
 /* ── Scroll Reveal Animations (Subtle & GPU-friendly) ── */

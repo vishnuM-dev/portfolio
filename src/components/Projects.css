@@ -1,5 +1,6 @@
 /* ==========================================================================
-   PROJECTS SECTION — LAVENDER & PEARL WHITE THEME
+   PROJECTS SECTION — MODERN-CLASSIC THEME
+   (Soft Lavender Gray, Burnt Coral, Olive Green, Deep Forest Charcoal)
    ========================================================================== */
 
 .projects-section {
@@ -12,7 +13,7 @@
 }
 
 .projects-title-accent {
-  color: var(--primary-lavender, #9870C2);
+  color: var(--color-coral, #D96846);
 }
 
 /* ── Filter Bar ── */
@@ -31,34 +32,34 @@
   padding: 0.5rem 1.15rem;
   border-radius: var(--radius-full);
   background: var(--bg-card, #FFFFFF);
-  border: 1px solid var(--subtle-borders, #E8DDF1);
-  color: var(--body-text, #665E70);
+  border: 1px solid var(--subtle-borders, #DDDCE4);
+  color: var(--body-text, #565750);
   font-family: var(--font-heading);
   font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
   transition: all var(--transition-fast);
   user-select: none;
-  box-shadow: 0 2px 8px rgba(152, 112, 194, 0.04);
+  box-shadow: 0 2px 8px rgba(47, 48, 32, 0.04);
 }
 
 .project-filter-pill:hover {
-  background: var(--bg-surface, #F3EDF9);
-  color: var(--deep-lavender, #7B43A5);
-  border-color: var(--primary-lavender, #9870C2);
+  background: var(--color-coral-light, #FBF0EC);
+  color: var(--color-coral, #D96846);
+  border-color: var(--color-coral, #D96846);
   transform: translateY(-1px);
 }
 
 .project-filter-pill.is-active {
-  background: var(--primary-lavender, #9870C2);
+  background: var(--color-coral, #D96846);
   color: #FFFFFF;
-  border-color: var(--primary-lavender, #9870C2);
+  border-color: var(--color-coral, #D96846);
   font-weight: 600;
-  box-shadow: 0 4px 14px rgba(152, 112, 194, 0.28);
+  box-shadow: 0 4px 14px rgba(217, 104, 70, 0.28);
 }
 
 .project-filter-pill.is-active:hover {
-  background: var(--deep-lavender, #7B43A5);
+  background: var(--color-coral-hover, #C25534);
 }
 
 /* ── 2-Column Responsive Grid ── */
