@@ -410,14 +410,17 @@ section[id] {
   }
 }
 
-/* ── Hide Netlify Badge ── */
+/* ── Hide Netlify Badge & Next.js Dev Indicator ── */
 [class*="netlify"],
 [id*="netlify"],
 [src*="netlify"],
 a[href*="netlify.com"],
 .netlify-badge,
 #netlify-badge,
-div[style*="netlify"] {
+div[style*="netlify"],
+nextjs-portal,
+[data-nextjs-dev-indicator],
+[data-nextjs-toast] {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
