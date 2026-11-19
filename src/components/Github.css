@@ -184,3 +184,38 @@
     justify-content: center;
   }
 }
+
+@media (max-width: 480px) {
+  .github-overview-card {
+    padding: 1rem 0.85rem;
+    border-radius: 16px;
+  }
+
+  .github-icon-circle {
+    width: 42px;
+    height: 42px;
+    border-radius: 11px;
+  }
+
+  .profile-handle {
+    font-size: 1.05rem;
+  }
+
+  .profile-bio {
+    font-size: 0.825rem;
+  }
+
+  .repo-card {
+    padding: 1rem 0.85rem;
+    border-radius: 16px;
+  }
+
+  .repo-name {
+    font-size: 0.98rem;
+    word-break: break-word;
+  }
+
+  .repo-desc {
+    font-size: 0.85rem;
+  }
+}

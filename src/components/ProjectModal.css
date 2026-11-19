@@ -247,3 +247,27 @@
   border-top: 1px solid var(--border-subtle);
   margin-top: 0.5rem;
 }
+
+@media (max-width: 480px) {
+  .project-modal-backdrop {
+    padding: 0.5rem;
+  }
+  .project-modal-card {
+    max-height: 92vh;
+    border-radius: var(--radius-md);
+  }
+  .modal-body {
+    padding: 1.15rem 1rem;
+    gap: 1.15rem;
+  }
+  .modal-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .modal-actions a,
+  .modal-actions button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+

@@ -204,8 +204,14 @@ img, video {
   padding-inline: clamp(1.25rem, 4vw, 2.5rem);
 }
 
+@media (max-width: 480px) {
+  .container {
+    padding-inline: 1rem;
+  }
+}
+
 .section,
-section[id] {
+section[id]:not(#home) {
   padding-block: clamp(2.25rem, 3.5vw, 3.5rem);
   position: relative;
   scroll-margin-top: 85px;
@@ -214,7 +220,7 @@ section[id] {
 
 @media (max-width: 768px) {
   .section,
-  section[id] {
+  section[id]:not(#home) {
     padding-block: clamp(1.75rem, 3vw, 2.5rem);
     scroll-margin-top: 75px;
   }
@@ -401,7 +407,7 @@ section[id] {
 
 /* ── Mobile Button Adaptation ── */
 @media (max-width: 600px) {
-  .btn {
+  .btn:not(.btn-icon) {
     padding: 0.75rem 1.25rem;
     font-size: 0.875rem;
     width: 100%;

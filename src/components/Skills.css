@@ -272,6 +272,36 @@
   }
 }
 
+@media (max-width: 380px) {
+  .skills-compact-card {
+    padding: 1rem 0.85rem;
+    border-radius: 16px;
+  }
+
+  .card-icon-square {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+  }
+
+  .card-title-text {
+    font-size: 0.98rem;
+  }
+
+  .card-chips-wrap {
+    gap: 0.35rem;
+  }
+
+  .skill-chip {
+    padding: 0.28rem 0.58rem;
+    font-size: 0.74rem;
+  }
+
+  .chip-name {
+    font-size: 0.74rem;
+  }
+}
+
 /* ── Respect Prefers-Reduced-Motion ── */
 @media (prefers-reduced-motion: reduce) {
   .skills-compact-card,

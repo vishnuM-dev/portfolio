@@ -76,3 +76,14 @@
     gap: 1.25rem;
   }
 }
+
+@media (max-width: 600px) {
+  .projects-filter-bar {
+    gap: 0.45rem;
+  }
+
+  .project-filter-pill {
+    padding: 0.4rem 0.85rem;
+    font-size: 0.785rem;
+  }
+}

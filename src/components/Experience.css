@@ -319,3 +319,61 @@
     padding: 1.25rem;
   }
 }
+
+@media (max-width: 480px) {
+  .experience-timeline-container {
+    padding-left: 1.15rem;
+  }
+
+  .timeline-track {
+    left: 4px;
+  }
+
+  .timeline-marker {
+    left: -1.15rem;
+  }
+
+  .company-logo-box {
+    width: 42px;
+    height: 42px;
+    border-radius: 11px;
+  }
+
+  .exp-role {
+    font-size: 1.1rem;
+  }
+
+  .exp-company {
+    font-size: 0.885rem;
+  }
+
+  .exp-meta-badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+  }
+
+  .exp-type-tag {
+    font-size: 0.72rem;
+    padding: 0.25rem 0.6rem;
+  }
+
+  .exp-description {
+    font-size: 0.925rem;
+  }
+
+  .exp-responsibility-item {
+    font-size: 0.865rem;
+  }
+
+  .exp-tech-pill {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .experience-card {
+    padding: 1rem 0.85rem;
+    border-radius: 16px;
+  }
+}

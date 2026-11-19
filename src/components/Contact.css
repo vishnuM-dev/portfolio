@@ -317,3 +317,51 @@
     padding: 1.25rem;
   }
 }
+
+@media (max-width: 480px) {
+  .contact-headline {
+    font-size: clamp(1.65rem, 6.5vw, 2.1rem);
+  }
+
+  .contact-intro-desc {
+    font-size: 0.885rem;
+  }
+
+  .contact-form-card {
+    padding: 1.15rem 0.95rem;
+    border-radius: 18px;
+  }
+
+  .form-card-title {
+    font-size: 1.15rem;
+  }
+
+  .form-card-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .form-input {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.875rem;
+  }
+
+  .contact-info-card {
+    padding: 0.75rem 0.85rem;
+    border-radius: 12px;
+  }
+
+  .contact-icon-box {
+    width: 36px;
+    height: 36px;
+  }
+
+  .contact-info-val {
+    font-size: 0.875rem;
+    word-break: break-word;
+  }
+
+  .contact-submit-btn {
+    padding: 0.8rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}

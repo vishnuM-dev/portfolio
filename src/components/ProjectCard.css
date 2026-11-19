@@ -239,3 +239,35 @@
     width: 100%;
   }
 }
+
+@media (max-width: 380px) {
+  .project-card {
+    border-radius: 18px;
+  }
+
+  .project-card-body {
+    padding: 1rem 0.85rem;
+  }
+
+  .project-card-title {
+    font-size: 1.12rem;
+  }
+
+  .project-card-desc {
+    font-size: 0.865rem;
+  }
+
+  .project-tech-badges {
+    gap: 0.35rem;
+  }
+
+  .project-tech-pill {
+    font-size: 0.72rem;
+    padding: 0.22rem 0.52rem;
+  }
+
+  .project-action-btn {
+    padding: 0.55rem 0.95rem;
+    font-size: 0.8rem;
+  }
+}

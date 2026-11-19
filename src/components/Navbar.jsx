@@ -35,6 +35,15 @@ export default function Navbar() {
       setActiveSection('');
       return;
     }
+
+    const checkScrollTop = () => {
+      if (window.scrollY < 80) {
+        setActiveSection('home');
+      }
+    };
+    window.addEventListener('scroll', checkScrollTop, { passive: true });
+    checkScrollTop();
+
     const sections = [
       ...navLinks.map(link => document.querySelector(link.href)),
       document.querySelector('#contact')
@@ -42,6 +51,10 @@ export default function Navbar() {
 
     const observer = new IntersectionObserver(
       entries => {
+        if (window.scrollY < 80) {
+          setActiveSection('home');
+          return;
+        }
         entries.forEach(e => {
           if (e.isIntersecting) {
             setActiveSection(e.target.id);
@@ -51,7 +64,10 @@ export default function Navbar() {
       { rootMargin: '-20% 0px -55% 0px', threshold: 0 }
     );
     sections.forEach(s => observer.observe(s));
-    return () => sections.forEach(s => observer.unobserve(s));
+    return () => {
+      window.removeEventListener('scroll', checkScrollTop);
+      sections.forEach(s => observer.unobserve(s));
+    };
   }, [pathname]);
 
   /* ── Close mobile menu on resize to desktop ── */

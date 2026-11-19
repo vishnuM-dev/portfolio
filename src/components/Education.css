@@ -189,3 +189,47 @@
     padding: 1.25rem;
   }
 }
+
+@media (max-width: 480px) {
+  .education-timeline-wrap {
+    padding-left: 1.25rem;
+  }
+
+  .education-track-line {
+    left: 8px;
+  }
+
+  .education-marker-node {
+    left: -1.25rem;
+    top: 16px;
+  }
+
+  .marker-cap-box {
+    width: 26px;
+    height: 26px;
+  }
+
+  .marker-cap-box svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .education-card {
+    padding: 1rem 0.85rem;
+    border-radius: 16px;
+  }
+
+  .edu-degree {
+    font-size: 1.05rem;
+  }
+
+  .edu-institution-row {
+    font-size: 0.85rem;
+  }
+
+  .edu-duration-pill,
+  .edu-grade-pill {
+    font-size: 0.74rem;
+    padding: 0.2rem 0.55rem;
+  }
+}

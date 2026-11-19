@@ -126,7 +126,8 @@
 .nav-link {
   display: inline-flex;
   align-items: center;
-  padding: 0.45rem 0.95rem;
+  justify-content: center;
+  padding: 0.44rem 1.05rem;
   border-radius: var(--radius-full);
   font-family: var(--font-heading);
   font-size: 0.885rem;
@@ -136,18 +137,25 @@
   transition: all var(--transition-fast);
   text-decoration: none;
   position: relative;
+  border: 1px solid transparent;
 }
 
 .nav-link:hover {
-  color: var(--color-coral, #D96846);
-  background: rgba(217, 104, 70, 0.12);
+  color: #FFFFFF;
+  background: rgba(217, 104, 70, 0.16);
 }
 
 .nav-link.active {
-  color: var(--color-coral, #D96846);
-  background: rgba(217, 104, 70, 0.18);
+  color: #FFFFFF;
+  background: var(--color-coral, #D96846);
   font-weight: 600;
-  border: 1px solid rgba(217, 104, 70, 0.35);
+  border-color: transparent;
+  box-shadow: 0 2px 10px rgba(217, 104, 70, 0.35);
+}
+
+.nav-link.active:hover {
+  background: var(--color-coral-hover, #C25534);
+  color: #FFFFFF;
 }
 
 /* ── 5. Right Actions: Contact Me Button & Mobile Toggle ── */
@@ -226,6 +234,8 @@
   top: calc(100% + 8px);
   left: 1.25rem;
   right: 1.25rem;
+  max-height: calc(100dvh - 75px);
+  overflow-y: auto;
   background: rgba(47, 48, 32, 0.98);
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
@@ -280,11 +290,20 @@
   color: var(--color-coral, #D96846);
 }
 
-.mobile-dropdown-link:hover,
-.mobile-dropdown-link.active {
+.mobile-dropdown-link:hover {
   background: rgba(217, 104, 70, 0.16);
   color: var(--color-coral, #D96846);
+}
+
+.mobile-dropdown-link.active {
+  background: var(--color-coral, #D96846);
+  color: #FFFFFF;
   font-weight: 600;
+  box-shadow: 0 2px 10px rgba(217, 104, 70, 0.35);
+}
+
+.mobile-dropdown-link.active .mobile-link-num {
+  color: #FFFFFF;
 }
 
 .mobile-dropdown-footer {
@@ -345,5 +364,42 @@
   .navbar-floating-pill {
     padding: 0 1.15rem;
     height: 52px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-wrapper {
+    padding: 0.65rem 0.75rem 0 0.75rem;
+  }
+
+  .navbar-floating-pill {
+    padding: 0 0.85rem;
+    height: 48px;
+  }
+
+  .brand-name {
+    font-size: 1rem;
+  }
+
+  .brand-dot {
+    width: 5px;
+    height: 5px;
+  }
+
+  .mobile-toggle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .mobile-glass-dropdown {
+    left: 0.75rem;
+    right: 0.75rem;
+    padding: 1rem 0.85rem;
+    border-radius: var(--radius-lg, 20px);
+  }
+
+  .mobile-dropdown-link {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.9rem;
   }
 }

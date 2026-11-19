@@ -38,38 +38,38 @@ export default function SpiderWebBackground() {
       typeof window !== 'undefined' &&
       window.matchMedia('(pointer: fine)').matches;
 
-    // Calculate particle count and connection parameters based on viewport
+    // Calculate particle count and connection parameters based on viewport (Clean & uncluttered)
     const getConfig = (w, h) => {
       if (w < 768) {
         // Mobile
         return {
-          count: Math.min(32, Math.max(20, Math.floor((w * h) / 26000))),
-          maxDist: 135,
+          count: Math.min(20, Math.max(14, Math.floor((w * h) / 38000))),
+          maxDist: 105,
           mouseRadius: 0,
-          maxLineAlpha: 0.35,
-          lineWidth: 1.25,
-          speedMult: 0.7
+          maxLineAlpha: 0.18,
+          lineWidth: 0.9,
+          speedMult: 0.5
         };
       }
       if (w < 1024) {
         // Tablet
         return {
-          count: Math.min(50, Math.max(34, Math.floor((w * h) / 20000))),
-          maxDist: 150,
-          mouseRadius: isFinePointer ? 150 : 0,
-          maxLineAlpha: 0.38,
-          lineWidth: 1.35,
-          speedMult: 0.85
+          count: Math.min(30, Math.max(22, Math.floor((w * h) / 28000))),
+          maxDist: 120,
+          mouseRadius: isFinePointer ? 130 : 0,
+          maxLineAlpha: 0.20,
+          lineWidth: 0.95,
+          speedMult: 0.65
         };
       }
-      // Desktop
+      // Desktop: Elegant, subtle constellation density without clutter
       return {
-        count: Math.min(80, Math.max(52, Math.floor((w * h) / 17500))),
-        maxDist: 165,
-        mouseRadius: isFinePointer ? 180 : 0,
-        maxLineAlpha: 0.42,
-        lineWidth: 1.42,
-        speedMult: 1.0
+        count: Math.min(42, Math.max(28, Math.floor((w * h) / 26000))),
+        maxDist: 135,
+        mouseRadius: isFinePointer ? 150 : 0,
+        maxLineAlpha: 0.22,
+        lineWidth: 1.0,
+        speedMult: 0.75
       };
     };
 
@@ -77,17 +77,17 @@ export default function SpiderWebBackground() {
     const initParticles = (targetCount, speedMult) => {
       const newParticles = [];
       for (let i = 0; i < targetCount; i++) {
-        const speed = (0.12 + Math.random() * 0.16) * speedMult * (prefersReducedMotion ? 0.2 : 1);
+        const speed = (0.08 + Math.random() * 0.10) * speedMult * (prefersReducedMotion ? 0.2 : 1);
         const angle = Math.random() * Math.PI * 2;
         newParticles.push({
           x: Math.random() * width,
           y: Math.random() * height,
           vx: Math.cos(angle) * speed,
           vy: Math.sin(angle) * speed,
-          radius: 2.0 + Math.random() * 0.5, // 2.0px - 2.5px (clearly visible nodes)
-          baseAlpha: 0.60 + Math.random() * 0.25, // 0.60 - 0.85
+          radius: 1.3 + Math.random() * 0.5, // 1.3px - 1.8px (refined subtle nodes)
+          baseAlpha: 0.45 + Math.random() * 0.20, // 0.45 - 0.65
           pulse: Math.random() * Math.PI * 2,
-          pulseSpeed: 0.015 + Math.random() * 0.02
+          pulseSpeed: 0.012 + Math.random() * 0.018
         });
       }
       particles = newParticles;
@@ -206,13 +206,13 @@ export default function SpiderWebBackground() {
 
         // Pulse alpha
         p.pulse += p.pulseSpeed;
-        const currentAlpha = Math.max(0.40, Math.min(0.95, p.baseAlpha + Math.sin(p.pulse) * 0.12));
+        const currentAlpha = Math.max(0.35, Math.min(0.75, p.baseAlpha + Math.sin(p.pulse) * 0.08));
 
         // Draw soft glowing particle in Soft Lavender Gray
         ctx.beginPath();
         ctx.fillStyle = `rgba(150, 147, 162, ${currentAlpha.toFixed(3)})`;
-        ctx.shadowBlur = 5;
-        ctx.shadowColor = 'rgba(89, 98, 53, 0.35)';
+        ctx.shadowBlur = 2;
+        ctx.shadowColor = 'rgba(89, 98, 53, 0.25)';
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fill();
       }
